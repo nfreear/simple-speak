@@ -1,0 +1,24 @@
+{
+  "name": "simple-speak",
+  "description": "Power-tool wrapper round browser Web Speech API | © Nick Freear, 28-May-2017.",
+  "author": "Nick Freear {@nfreear}",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nfreear/simple-speak"
+  },
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "jquery": "^2.2.4",
+    "jsdom": "^9.12.0",
+    "semistandard": "^11.0.0",
+    "xo": "^0.18.2"
+  },
+  "scripts": {
+    "build": "browserify -i jquery index.js -o bundle.js",
+    "X-build": "browserify -i jquery src/si*.js -o bundle.js",
+    "test": "semistandard",
+    "osx-say-hi": "say -v vicki Hello, Im simple-speak.",
+    "osx-voices": "say -v '?'",
+    "xo": "xo"
+  }
+}

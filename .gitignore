@@ -1,0 +1,9 @@
+
+src/simple-speak.js
+bundle.js
+beep.js
+*copy*
+*test.js
+*.html
+*.log
+node_modules

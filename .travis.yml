@@ -1,0 +1,14 @@
+# Travis-CI.
+language: node_js
+node_js:
+  - "4"
+
+git:
+  depth: 5
+
+script:
+  - npm run build
+  - npm test
+
+after_script:
+  - ls -alh .
