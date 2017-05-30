@@ -5,15 +5,18 @@
 
 # nfreear / simple-speak
 
-Power-tool wrapper around the [Web Speech API][w3c] in the browser.
+A straightforward, high-level wrapper around the [Web Speech API][w3c] in the browser.
 
-Compatibility:
+Web browser compatibility:
 
-* Recent Chrome,
+* Compatible ~ recent Chrome, Firefox, Safari and MS Edge,
+* Not compatible ~ MS Internet Explorer.
 
 [Original Gist][gist].
 
 ## Install and test
+
+Build with [Browserify][]:
 
 ```sh
 npm install
@@ -56,6 +59,7 @@ License: [MIT][].
   "Web Speech API Specification. Editor's Draft: 6 June 2014"
 [gist]: https://gist.github.com/nfreear/3e6255fe4283353e8aa2f62094ae91c9 "Gist: simple-speak.proto.js"
 [gist-v]: https://gist.github.com/nfreear/4de02b347d61cb3650b89e11162d7d6a "Gist: get-voices.js.html"
+[Browserify]: https://github.com/substack/browserify-handbook#introduction
 [RawGit]: https://rawgit.com/
   "Serves Git files with the correct mime-type; content delivery network (CDN)"
 [MIT]: https://nfreear.mit-license.org/2017#!-simple-speak "MIT License"

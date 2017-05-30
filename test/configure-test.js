@@ -1,4 +1,6 @@
-// node-test.js
+/*!
+  configure-test | © Nick Freear, 30-May-2017.
+*/
 
 const jsdom = require('jsdom');
 // const { JSDOM } = jsdom;
@@ -9,7 +11,7 @@ jsdom.env('', function (err, window) {
     return;
   }
 
-  var $ = require('jquery')(window);
+  // var $ = require('jquery')(window);
 
   var config = require('../src/configure.js').configure(window);
 
