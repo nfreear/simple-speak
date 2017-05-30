@@ -1,4 +1,5 @@
-# Travis-CI.
+# Travis setup for simple-speak.
+
 language: node_js
 node_js:
   - "4"
@@ -12,3 +13,6 @@ script:
 
 after_script:
   - ls -alh .
+  - node test/configure-test.js
+
+# End.

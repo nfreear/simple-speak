@@ -1,9 +1,10 @@
+*.js.map
 
 src/simple-speak.js
 bundle.js
 beep.js
 *copy*
-*test.js
+# *test.js
 *.html
 *.log
 node_modules

@@ -1,15 +1,23 @@
 /*!
   simple-speak | © Nick Freear, 28-May-2017.
 
-  https://gist.github.com/nfreear/3e6255fe4283353e8aa2f62094ae91c9
+  https://github.com/nfreear/simple-speak
 */
 
-var config = require('./src/configure').configure();
+(function () {
+  'use strict';
 
-config = require('./src/choose-voice').chooseVoice(config);
+  var config = require('./src/configure').configure();
 
-config.synth = require('./src/speak-methods');
+  if (!require('./src/compat').compatible(config)) {
+    return;
+  }
 
-require('./src/html-events').htmlEvents(config);
+  config = require('./src/choose-voice').chooseVoice(config);
 
-// End.
+  config.synth = require('./src/speak-methods');
+
+  require('./src/html-events').htmlEvents(config);
+
+  // End.
+})();

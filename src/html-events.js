@@ -6,7 +6,7 @@ module.exports.htmlEvents = function (ssConfig, WIN) {
 
   WIN = WIN || window;
 
-  var $ = /* require('jquery') || */ WIN.jQuery;
+  var $ = WIN.jQuery;
 
   var $elem = $('#' + ssConfig.id);
   var $form = $(ssConfig.form);

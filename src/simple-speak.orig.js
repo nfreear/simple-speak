@@ -2,7 +2,7 @@
   ORIGINAL simple-speak | © Nick Freear, 28-May-2017.
 */
 
-//var simples = module.exports.simpleSpeak = function (WIN) {
+// var simples = module.exports.simpleSpeak = function (WIN) {
 (function (window) {
   'use strict';
 
@@ -92,7 +92,7 @@
 
   return ssConfig;
 })(this);
-//};
+// };
 
 /*
 var isBrowser = typeof window !== 'undefined' && ({}).toString.call(window) === '[object Window]';

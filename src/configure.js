@@ -5,7 +5,8 @@ module.exports.configure = function (WIN) {
   'use strict';
 
   var defaults = {
-    id: 'id-simplespeak',
+    id: 'id-simple-speak',
+    no_compat_msg: '<p id="no-compat-simple-speak-msg" >Sorry! Speech synthesis is not available in your browser.</p>',
     form: '<form id="form-simplespeak"><button class="sp">Say</button> <button class="cl">Cancel</button></form>',
     // form: '<form id="form-simplespeak"><input type="submit" value="Say"> <input type="button" class="cl" value="Cancel"></form>',
     mode: 'say-on-submit',
