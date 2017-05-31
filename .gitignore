@@ -7,5 +7,7 @@ beep.js
 *copy*
 # *test.js
 *.html
+!test/index.html
+!get-voices.html
 *.log
 node_modules

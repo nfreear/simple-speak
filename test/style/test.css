@@ -1,0 +1,66 @@
+/*!
+  Test-page styles | © Nick Freear, 30-May-2017.
+*/
+
+body {
+  background: #fefefe;
+  color: #222;
+  font: 1.02em sans-serif;
+  margin: 1em auto;
+  max-width: 36em;
+}
+.get-voices-page body {
+  margin: .3em 3em;
+  max-width: none;
+}
+
+h1, h2 {
+  font-weight: normal;
+}
+
+form {
+  display: block;
+  margin: 1em 0 1.7em;
+}
+
+input,
+button {
+  font-size: 1.05em;
+  padding: 3px 12px;
+}
+
+input/*#id-simple-speak */ {
+  min-width: 16em;
+}
+
+button {
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+button:before {
+  font-weight: bold;
+}
+button.X-cl:before {
+  content: '×';  /* '&times;' not letter 'X' */
+}
+
+button i {
+  font-style: normal;
+}
+button i.X {
+  display: inline-block;
+  position: absolute;
+  top: -999px;
+}
+
+pre {
+  border-top: 1px solid #bbb;
+  margin: 3em 0 1em;
+  padding-top: .5em;
+}
+
+body #XX--no-compat-simple-speak-msg {
+  color: darkorange;
+  font-weight: bold;
+}

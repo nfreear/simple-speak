@@ -15,36 +15,46 @@
   }
 
   config = require('./src/choose-voice').chooseVoice(config);
-
   config.synth = require('./src/speak-methods');
 
-  require('./src/html-events').htmlEvents(config);
+  require('./src/html-events').htmlEvents(config);  // 'RUN'!
 
   // End.
 })();
 
 },{"./src/choose-voice":2,"./src/compat":3,"./src/configure":4,"./src/html-events":5,"./src/speak-methods":6}],2:[function(require,module,exports){
 
-// Choose a voice | © Nick Freear.
+// Choose a synthesiser voice | © Nick Freear.
 
 module.exports.chooseVoice = function (ssConfig, WIN) {
   'use strict';
 
   WIN = WIN || window;
 
+  // Parse the comma-separated list of potential voice names
+  // - prepare for lower-case '===' comparisons below.
+  var voiceFamily = ssConfig.voiceFamily.toLowerCase().split(/, ?/);
   var synthesis = WIN.speechSynthesis;
 
   synthesis.onvoiceschanged = function () {
-    var voices = synthesis.getVoices();
+    var voiceAvail = synthesis.getVoices();
     var idx;
+    var j;
 
-    // console.log('tts: voices: ', voices);
+    // console.log('tts: voices: ', voiceAvail, voiceFamily);
 
-    for (idx = 0; idx < voices.length; idx++) {
-      if (ssConfig.voiceFamily === voices[ idx ].name) {
-        ssConfig.voice = voices[ idx ];
+    for (j = 0; j < voiceFamily.length; j++) {
+      var voiceTry = voiceFamily[ j ];
 
-        console.warn('simplespeak voice:', ssConfig.voice);
+      for (idx = 0; idx < voiceAvail.length; idx++) {
+        var avail = voiceAvail[ idx ];
+
+        if (voiceTry === avail.name.toLowerCase()) {
+          ssConfig.voice = avail;
+
+          console.warn('simplespeak voice:', ssConfig.voice);
+          break;
+        }
       }
     }
   };
@@ -64,7 +74,7 @@ module.exports.compatible = function (ssConfig, WIN) {
   var isCompat = ssConfig.is_compatible = ('speechSynthesis' in WIN);
 
   if (ssConfig.override_compat) {
-    isCompat = ssConfig.is_compatible = false;
+    isCompat = ssConfig.is_compatible = false; // Test configuration!
   }
 
   var $body = WIN.jQuery('body');
@@ -95,16 +105,16 @@ module.exports.configure = function (WIN) {
 
   var defaults = {
     id: 'id-simple-speak',
-    no_compat_msg: '<p id="no-compat-simple-speak-msg">Sorry! Speech synthesis is not available in your browser.</p>',
-    form: '<form id="form-simplespeak"><button class="sp">Say</button> <button class="cl">Cancel</button></form>',
-    // input: '<label>Speech input <input id="inp-simple-speak" value="%s"></label>',
-    mode: 'say-html-on-submit', // Or: 'say-input', 'spell-on-focus' etc.
+    mode: 'say-html-on-submit', // Or: 'say-input', 'say-on-focus', 'spell-on-focus' etc.
     lang: 'en-US',
+    no_compat_msg: '<p id="no-compat-simple-speak-msg">Sorry! Speech synthesis is not available in your browser.</p>',
+    form: '<form id="frm-simple-speak"><button class="sp"><i>Speak</i></button><button class="cl"><i>Cancel</i></button></form>',
+    // input: '<label>Speech input <input id="inp-simple-speak" value="%s"></label>',
     pitch: 1,
     rate: 1,
     volume: 1,
     voice: null,
-    voiceFamily: 'Agnes' // 'Agnes, female'
+    voiceFamily: 'Kathy, female' // Comma-separated list: 'Agnes, Microsoft Anna - ... , female'
   };
 
   WIN = WIN || window;
@@ -115,12 +125,14 @@ module.exports.configure = function (WIN) {
 
   var ssConfig = $.extend(defaults, options ? options.simpleSpeak : { });
 
+  console.warn('simplespeak config:', options, $config);
+
   return ssConfig;
 };
 
 },{}],5:[function(require,module,exports){
 
-// HTML page manipulation and events | © Nick Freear.
+// Manipulate the HTML page, and setup user-events | © Nick Freear.
 
 module.exports.htmlEvents = function (ssConfig, WIN) {
   'use strict';
@@ -134,9 +146,9 @@ module.exports.htmlEvents = function (ssConfig, WIN) {
 
   $elem.after($form);
 
-  var $cancel = $form.find('.cl');
+  var $cancelButton = $form.find('.cl');
 
-  $cancel.on('click', function (ev) {
+  $cancelButton.on('click', function (ev) {
     ssConfig.synth.cancel();
 
     ev.preventDefault();
@@ -153,9 +165,10 @@ module.exports.htmlEvents = function (ssConfig, WIN) {
 
 },{}],6:[function(require,module,exports){
 
-// Speak and cancel an utterance | © Nick Freear.
+// Synthesiser methods - speak and cancel an utterance | © Nick Freear.
 
 module.exports = {
+
   speak: function (ssConfig, WIN) {
     'use strict';
 
@@ -179,6 +192,7 @@ module.exports = {
     // synthesis.cancel();
     synthesis.speak(utterance);
   },
+
   cancel: function (WIN) {
     WIN = WIN || window;
 
