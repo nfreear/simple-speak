@@ -1,7 +1,8 @@
 
-// Speak and cancel an utterance | © Nick Freear.
+// Synthesiser methods - speak and cancel an utterance | © Nick Freear.
 
 module.exports = {
+
   speak: function (ssConfig, WIN) {
     'use strict';
 
@@ -25,6 +26,7 @@ module.exports = {
     // synthesis.cancel();
     synthesis.speak(utterance);
   },
+
   cancel: function (WIN) {
     WIN = WIN || window;
 

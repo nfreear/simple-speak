@@ -1,5 +1,5 @@
 
-// HTML page manipulation and events | © Nick Freear.
+// Manipulate the HTML page, and setup user-events | © Nick Freear.
 
 module.exports.htmlEvents = function (ssConfig, WIN) {
   'use strict';
@@ -13,9 +13,9 @@ module.exports.htmlEvents = function (ssConfig, WIN) {
 
   $elem.after($form);
 
-  var $cancel = $form.find('.cl');
+  var $cancelButton = $form.find('.cl');
 
-  $cancel.on('click', function (ev) {
+  $cancelButton.on('click', function (ev) {
     ssConfig.synth.cancel();
 
     ev.preventDefault();

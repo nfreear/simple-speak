@@ -14,10 +14,9 @@
   }
 
   config = require('./src/choose-voice').chooseVoice(config);
-
   config.synth = require('./src/speak-methods');
 
-  require('./src/html-events').htmlEvents(config);
+  require('./src/html-events').htmlEvents(config);  // 'RUN'!
 
   // End.
 })();

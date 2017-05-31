@@ -9,7 +9,7 @@ module.exports.compatible = function (ssConfig, WIN) {
   var isCompat = ssConfig.is_compatible = ('speechSynthesis' in WIN);
 
   if (ssConfig.override_compat) {
-    isCompat = ssConfig.is_compatible = false;
+    isCompat = ssConfig.is_compatible = false; // Test configuration!
   }
 
   var $body = WIN.jQuery('body');

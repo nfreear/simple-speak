@@ -1,5 +1,5 @@
 /*!
-  Show speech synthesis voices for browser | © Nick Freear, 28-May-2017.
+  Show speech synthesis voices for a browser/ system. | © Nick Freear, 28-May-2017.
 
   https://gist.github.com/nfreear/4de02b347d61cb3650b89e11162d7d6a
 */
@@ -10,8 +10,8 @@
   var elem = document.getElementById('get-voices'); // Was: 'tts-voices'
 
   var synthesis = window.speechSynthesis;
-  var re_male = /Alex/;    // eslint-disable-line
-  var re_female = /Agnes/; // eslint-disable-line
+  var re_male = /(Alex| Male)/i;          // eslint-disable-line
+  var re_female = /(Agnes|Anna|Female)/i; // eslint-disable-line
   var voiceList = [];
 
   synthesis.onvoiceschanged = function () {
@@ -42,7 +42,9 @@
 
   console.log('tts: ', synthesis.getVoices(), utterThis);
 
-  synthesis.speak(utterThis);
+  if (window.location.search.match(/[?&]speak=/)) {
+    synthesis.speak(utterThis);
+  }
 
   // .
 })(window, window.document, window.navigator);
