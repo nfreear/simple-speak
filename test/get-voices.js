@@ -15,6 +15,23 @@
   var voiceList = [];
 
   synthesis.onvoiceschanged = function () {
+    processVoices();
+  };
+  processVoices();
+
+  var utterThis = new window.SpeechSynthesisUtterance("Je t'aime!");
+  // utterThis.lang = 'fr';
+  // utterThis.voice = 'Kathy';
+
+  console.log('tts: ', synthesis.getVoices(), utterThis);
+
+  if (window.location.search.match(/[?&]speak=/)) {
+    synthesis.speak(utterThis);
+  }
+
+  // -----------------
+
+  function processVoices () {
     var voices = synthesis.getVoices();
     var idx;
 
@@ -34,16 +51,6 @@
     }
 
     elem.innerHTML = navigator.userAgent + '\n\nVoices: ' + voices.length + '\n' + JSON.stringify(voiceList, null, 2);
-  };
-
-  var utterThis = new window.SpeechSynthesisUtterance("Je t'aime!");
-  // utterThis.lang = 'fr';
-  // utterThis.voice = 'Kathy';
-
-  console.log('tts: ', synthesis.getVoices(), utterThis);
-
-  if (window.location.search.match(/[?&]speak=/)) {
-    synthesis.speak(utterThis);
   }
 
   // .
