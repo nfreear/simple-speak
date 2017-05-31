@@ -1,18 +1,19 @@
-# Travis setup for simple-speak | © Nick Freear | License: MIT.
-language: node_js
+# Travis-CI setup for simple-speak | © Nick Freear | License: MIT.
 
+language: node_js
 node_js:
   - "4"
 
 git:
-  depth: 5
+  depth: 8
 
 script:
   - npm run build
+  - npm run build-min
   - npm test
 
 after_script:
-  - ls -alh .
+  - ls -alh build/
   - node test/configure-test.js
 
 # End.
