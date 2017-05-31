@@ -1,6 +1,6 @@
-# Travis setup for simple-speak.
-
+# Travis setup for simple-speak | © Nick Freear | License: MIT.
 language: node_js
+
 node_js:
   - "4"
 

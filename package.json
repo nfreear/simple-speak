@@ -19,11 +19,14 @@
     "xo": "^0.18.2"
   },
   "scripts": {
-    "build": "browserify index.js -i jquery --debug | exorcist bundle.js.map > bundle.js",
+    "build": "browserify index.js -i jquery --debug | exorcist build/simple-speak.js.map > build/simple-speak.js",
     "x-build": "browserify -i jquery src/*.orig.js -o bundle.js",
     "test": "semistandard",
     "osx-say-hi": "say -v vicki Hello, Im simple-speak.",
     "osx-voices": "say -v '?'",
     "xo": "xo"
+  },
+  "semistandard": {
+    "ignore": "build/"
   }
 }

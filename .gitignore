@@ -1,7 +1,8 @@
 *.js.map
 
-src/simple-speak.js
+# build/simple-speak.js
 bundle.js
+*.min.js
 beep.js
 *copy*
 # *test.js

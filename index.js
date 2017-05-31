@@ -1,5 +1,5 @@
 /*!
-  simple-speak | © Nick Freear, 28-May-2017.
+  simple-speak | © 2017 Nick Freear | License: MIT.
 
   https://github.com/nfreear/simple-speak
 */

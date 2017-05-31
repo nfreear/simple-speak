@@ -6,11 +6,11 @@ module.exports.configure = function (WIN) {
 
   var defaults = {
     id: 'id-simple-speak',
-    no_compat_msg: '<p id="no-compat-simple-speak-msg" >Sorry! Speech synthesis is not available in your browser.</p>',
-    form: '<form id="form-simplespeak"><button class="sp">Say</button> <button class="cl">Cancel</button></form>',
-    // form: '<form id="form-simplespeak"><input type="submit" value="Say"> <input type="button" class="cl" value="Cancel"></form>',
-    mode: 'say-on-submit',
+    mode: 'say-html-on-submit', // Or: 'say-input', 'say-on-focus', 'spell-on-focus' etc.
     lang: 'en-US',
+    no_compat_msg: '<p id="no-compat-simple-speak-msg">Sorry! Speech synthesis is not available in your browser.</p>',
+    form: '<form id="frm-simple-speak"><button class="sp">Say</button> <button class="cl">Cancel</button></form>',
+    // input: '<label>Speech input <input id="inp-simple-speak" value="%s"></label>',
     pitch: 1,
     rate: 1,
     volume: 1,
