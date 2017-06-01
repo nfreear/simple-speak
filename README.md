@@ -7,7 +7,7 @@
 
 A powerful, straightforward wrapper around the [Web Speech API][w3c] in the browser.
 Zero-configuration speech synthesis / text-to-speech (TTS)
-(... with plenty of configuration potential if you need it).
+_(... with plenty of configuration potential if you need it)_.
 
 Web [browser compatibility][caniuse]:
 
@@ -37,7 +37,7 @@ Speak static text within an arbitrary HTML `<element>` — zero-configuration:
 <script src="../build/simple-speak.js"></script>
 ```
 
-Speak a text form-field, set an alternative voice:
+Speak a text form-field, configure an alternative voice:
 
 ```html
 <label>Speech input <input id="id-simple-speak" value="Hi. I'm a text input box!"></label>
@@ -45,6 +45,8 @@ Speak a text form-field, set an alternative voice:
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="../build/simple-speak.js" data-simple-speak='{ "voiceFamily": "Vicki" }'></script>
 ```
+
+### CDN usage
 
 Use [Javascript hosted][rel] on a CDN — [RawGit][]:
 
@@ -64,7 +66,7 @@ License: [MIT][].
 
 
 [gh]: https://github.com/nfreear/simple-speak
-[rel]: https://github.com/nfreear/simple-speak/releases "Work-in-progress! (Tagged release/ version.)"
+[rel]: https://github.com/nfreear/simple-speak/releases "Work-in-progress! (Tagged release/ version)"
 [@nfreear]: https://twitter.com/nfreear "Twitter: @nfreear"
 [blog]: http://nick.freear.org.uk "Nick Freear's blog"
 [moz]: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
@@ -76,12 +78,16 @@ License: [MIT][].
 [RawGit]: https://rawgit.com/
   "Serves Git files with the correct mime-type; content delivery network (CDN)"
 [MIT]: https://nfreear.mit-license.org/2017#!-simple-speak "MIT License"
-[caniuse]: https://caniuse.com/#feat=speech-synthesis "Check browser compatibility (caniuse)."
+[caniuse]: https://caniuse.com/#feat=speech-synthesis "Check browser compatibility (caniuse)"
 [travis]: https://travis-ci.org/nfreear/simple-speak
 [travis-icon]: https://api.travis-ci.org/nfreear/simple-speak.svg
   "Build status – Travis-CI (NPM/eslint)"
 [semi]: https://github.com/Flet/semistandard
 [semi-icon]: https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square
   "Javascript coding style — 'semistandard'"
+
+[stats-wp]: https://en.wikipedia.org/wiki/Usage_share_of_web_browsers#Summary_tables
+[stats-3c]: https://www.w3counter.com/globalstats.php#!-April-2017
+[trend-3c]: https://www.w3counter.com/trends
 
 [End]: //
