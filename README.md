@@ -86,6 +86,8 @@ License: [MIT][].
 [semi-icon]: https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square
   "Javascript coding style — 'semistandard'"
 
+[compat]: https://docs.google.com/spreadsheets/d/1i3Czp0nGnI-a5gSJbLv3RLLoK0JWZBvr0L4XVna8OZU/#gid=0
+  "Browser compatibility tests; count of available voices (Google Docs)"
 [stats-wp]: https://en.wikipedia.org/wiki/Usage_share_of_web_browsers#Summary_tables
 [stats-3c]: https://www.w3counter.com/globalstats.php#!-April-2017
 [trend-3c]: https://www.w3counter.com/trends

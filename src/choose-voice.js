@@ -51,6 +51,6 @@ function innerChooseVoice (synthesis, ssConfig) {
 }
 
 function fixVoice (name) {
-  var shorten = name.replace('(United States)', '(US)').replace(/\'\"/g, '');
+  var shorten = name.replace('(United States)', '(US)').replace(/'"/g, '');
   return shorten.toLowerCase();
 }
