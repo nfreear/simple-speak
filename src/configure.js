@@ -1,7 +1,7 @@
 
 // Configure | © Nick Freear.
 
-module.exports.configure = function (WIN) {
+module.exports.configure = function (version, WIN) {
   'use strict';
 
   var defaults = {
@@ -25,6 +25,8 @@ module.exports.configure = function (WIN) {
   var options = $config.data();
 
   var ssConfig = $.extend(defaults, options ? options.simpleSpeak : { });
+
+  ssConfig.version = version;
 
   console.warn('simplespeak config:', options, $config);
 

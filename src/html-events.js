@@ -8,8 +8,10 @@ module.exports.htmlEvents = function (ssConfig, WIN) {
 
   var $ = WIN.jQuery;
 
-  var $elem = $('#' + ssConfig.id);
-  var $form = $(ssConfig.form);
+  var $elem = ssConfig.$elem = $('#' + ssConfig.id);
+  var $form = ssConfig.$form = $(ssConfig.form);
+
+  ssConfig.$ = $;
 
   $elem.after($form);
 
@@ -28,4 +30,14 @@ module.exports.htmlEvents = function (ssConfig, WIN) {
 
     ev.preventDefault();
   });
+
+  // embedCodeDialog($form, $, ssConfig);
+
+  poweredByLink($form);
 };
+
+// 'Powered by' link.
+function poweredByLink ($form) {
+  var url = 'https://github.com/nfreear/simple-speak?utm_source=simplespeak';
+  $form.append('<a class="by" href="%s" title="Powered by simple-speak. MIT License.">simple-speak</a>'.replace(/%s/, url));
+}

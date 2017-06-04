@@ -1,3 +1,4 @@
+version.js
 *.js.map
 
 # build/simple-speak.js
@@ -10,4 +11,5 @@ beep.js
 !test/index.html
 !get-voices.html
 *.log
+*.diff
 node_modules

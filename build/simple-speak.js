@@ -8,7 +8,10 @@
 (function () {
   'use strict';
 
-  var config = require('./src/configure').configure();
+  var VERSION_TAG = '1.0-alpha'; // <Auto>
+  // var VERSION_TAG = require('./src/version');
+
+  var config = require('./src/configure').configure(VERSION_TAG);
 
   if (!require('./src/compat').compatible(config)) {
     return;
@@ -17,12 +20,14 @@
   config = require('./src/choose-voice').chooseVoice(config);
   config.synth = require('./src/speak-methods');
 
-  require('./src/html-events').htmlEvents(config);  // 'RUN'!
+  require('./src/html-events').htmlEvents(config); // 'RUN'!
+
+  require('./src/embed-dialog').embedDialog(config);
 
   // End.
 })();
 
-},{"./src/choose-voice":2,"./src/compat":3,"./src/configure":4,"./src/html-events":5,"./src/speak-methods":6}],2:[function(require,module,exports){
+},{"./src/choose-voice":2,"./src/compat":3,"./src/configure":4,"./src/embed-dialog":5,"./src/html-events":6,"./src/speak-methods":7}],2:[function(require,module,exports){
 
 // Choose a synthesiser voice | © Nick Freear.
 
@@ -118,7 +123,7 @@ module.exports.compatible = function (ssConfig, WIN) {
 
 // Configure | © Nick Freear.
 
-module.exports.configure = function (WIN) {
+module.exports.configure = function (version, WIN) {
   'use strict';
 
   var defaults = {
@@ -143,12 +148,47 @@ module.exports.configure = function (WIN) {
 
   var ssConfig = $.extend(defaults, options ? options.simpleSpeak : { });
 
+  ssConfig.version = version;
+
   console.warn('simplespeak config:', options, $config);
 
   return ssConfig;
 };
 
 },{}],5:[function(require,module,exports){
+
+// 'Copy-paste embed code' dialog | © Nick Freear.
+
+module.exports.embedDialog = function (ssConfig) {
+  'use strict';
+
+  var scriptUrl = 'https://cdn.rawgit.com/nfreear/simple-speak/%s/build/simple-speak.js'.replace(/%s/, ssConfig.version);
+  // var scriptUrl = $('script[ src *= simple-speak ]').attr('src');
+  var jqueryUrl = ssConfig.$('script[ src *= jquery ]').attr('src');
+  var embedCode = '&lt;div id="id-simple-speak">Hello&lt;/div>\n\n&lt;script src="%jq">&lt;/script>\n&lt;script src="%s">&lt;/script>';
+  var embedDialog = '<div role="alertdialog"><label>Copy & paste the embed code <textarea>%e</textarea></label></div>';
+  var $form = ssConfig.$form;
+
+  $form.append('<button class="em" title="Get the embed code">&lt;/></button>');
+
+  var $embedButton = $form.find('.em');
+
+  $embedButton.on('click', function (ev) {
+    var $dialog = $form.find('[ role = alertdialog ]');
+
+    if ($dialog.length) {
+      $dialog.toggle();
+    } else {
+      $form.append(embedDialog.replace(/%e/, embedCode).replace(/%s/, scriptUrl).replace(/%jq/, jqueryUrl));
+    }
+
+    console.warn('simplespeak: embed dialog');
+
+    ev.preventDefault();
+  });
+};
+
+},{}],6:[function(require,module,exports){
 
 // Manipulate the HTML page, and setup user-events | © Nick Freear.
 
@@ -159,8 +199,10 @@ module.exports.htmlEvents = function (ssConfig, WIN) {
 
   var $ = WIN.jQuery;
 
-  var $elem = $('#' + ssConfig.id);
-  var $form = $(ssConfig.form);
+  var $elem = ssConfig.$elem = $('#' + ssConfig.id);
+  var $form = ssConfig.$form = $(ssConfig.form);
+
+  ssConfig.$ = $;
 
   $elem.after($form);
 
@@ -179,9 +221,19 @@ module.exports.htmlEvents = function (ssConfig, WIN) {
 
     ev.preventDefault();
   });
+
+  // embedCodeDialog($form, $, ssConfig);
+
+  poweredByLink($form);
 };
 
-},{}],6:[function(require,module,exports){
+// 'Powered by' link.
+function poweredByLink ($form) {
+  var url = 'https://github.com/nfreear/simple-speak?utm_source=simplespeak';
+  $form.append('<a class="by" href="%s" title="Powered by simple-speak. MIT License.">simple-speak</a>'.replace(/%s/, url));
+}
+
+},{}],7:[function(require,module,exports){
 
 // Synthesiser methods - speak and cancel an utterance | © Nick Freear.
 

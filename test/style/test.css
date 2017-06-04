@@ -34,8 +34,10 @@ input/*#id-simple-speak */ {
   min-width: 18em;
 }
 
-button {
+#frm-simple-speak a,
+#frm-simple-speak button {
   cursor: pointer;
+  display: inline-block;
   margin-right: 8px;
 }
 
@@ -53,6 +55,37 @@ button i.X {
   display: inline-block;
   position: absolute;
   top: -999px;
+}
+
+
+#frm-simple-speak a,
+#frm-simple-speak .em {
+  font-size: .76em;
+  /* letter-spacing: -.02em; */
+}
+#frm-simple-speak .em {
+  padding: 5px 0;
+}
+
+#frm-simple-speak div[ role = alertdialog ] {
+  background: #eee;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: .85em;
+  line-height: 1.9em;
+  margin-top: 4px;
+  padding: 4px;
+  position: absolute;
+}
+
+#frm-simple-speak div[ role = alertdialog ] textarea {
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  display: block;
+  font-size: .96em;
+  height: 5em;
+  padding: 2px;
+  width: 52em;
 }
 
 pre {
