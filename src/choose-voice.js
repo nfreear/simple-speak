@@ -24,7 +24,7 @@ function innerChooseVoice (synthesis, ssConfig) {
   var idx;
   var j;
 
-  if (!voiceAvail.length) {
+  if (!voiceAvail.length || ssConfig.voice) {
     return;
   }
 

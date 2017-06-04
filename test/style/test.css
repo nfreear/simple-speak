@@ -27,10 +27,11 @@ input,
 button {
   font-size: 1.05em;
   padding: 3px 12px;
+  text-align: center;
 }
 
 input/*#id-simple-speak */ {
-  min-width: 16em;
+  min-width: 18em;
 }
 
 button {

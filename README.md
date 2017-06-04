@@ -5,7 +5,7 @@
 
 # nfreear / simple-speak
 
-A powerful, straightforward wrapper around the [Web Speech API][w3c] in the browser.
+A powerful, straightforward Javascript wrapper around the [Web Speech API][w3c] in the browser.
 Zero-configuration speech synthesis / text-to-speech (TTS)
 _(... with plenty of configuration potential if you need it)_.
 

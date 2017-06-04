@@ -49,7 +49,7 @@ function innerChooseVoice (synthesis, ssConfig) {
   var idx;
   var j;
 
-  if (!voiceAvail.length) {
+  if (!voiceAvail.length || ssConfig.voice) {
     return;
   }
 
@@ -76,7 +76,7 @@ function innerChooseVoice (synthesis, ssConfig) {
 }
 
 function fixVoice (name) {
-  var shorten = name.replace('(United States)', '(US)').replace(/\'\"/g, '');
+  var shorten = name.replace('(United States)', '(US)').replace(/'"/g, '');
   return shorten.toLowerCase();
 }
 
