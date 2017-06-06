@@ -1,0 +1,84 @@
+/*!
+  simple-speak | © 2017 Nick Freear | License: MIT.
+
+  https://github.com/nfreear/simple-speak
+*/
+
+/* Was: #no-compat-simple-speak-msg */
+.simple-speak-no-compat {
+  border: 1px solid darkorange;
+  color: darkorange;
+  padding: .5em;
+}
+
+/* Was: #frm-simple-speak */
+.simple-speak-frm {
+  display: block;
+  margin: 1em 0 1.7em;
+}
+
+.simple-speak-frm input,
+.simple-speak-frm button {
+  font-size: 1.05em;
+  padding: 3px 12px;
+  text-align: center;
+}
+
+.simple-speak-inp /* Was: input#id-simple-speak */ {
+  font-size: 1.05em;
+  min-width: 18em;
+}
+
+.simple-speak-frm a,
+.simple-speak-frm button {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.simple-speak-frm button:before {
+  font-weight: bold;
+}
+.simple-speak-frm .X-BTN-cl:before {
+  content: '×';  /* '&times;' not letter 'X' */
+}
+
+.simple-speak-frm button i {
+  font-style: normal;
+}
+.simple-speak-frm button .i-X {
+  display: inline-block;
+  position: absolute;
+  top: -999px;
+}
+
+.simple-speak-frm a,
+.simple-speak-frm .em {
+  font-size: .76em;
+  /* letter-spacing: -.02em; */
+}
+
+.simple-speak-frm .em {
+  padding: 5px 0;
+}
+
+.simple-speak-frm div[ role = alertdialog ] {
+  background: #eee;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: .85em;
+  line-height: 1.9em;
+  margin-top: 4px;
+  padding: 4px;
+  position: absolute;
+}
+
+.simple-speak-frm div[ role = alertdialog ] textarea {
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  display: block;
+  font-size: .96em;
+  height: 5em;
+  padding: 2px;
+  width: 52em;
+}

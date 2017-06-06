@@ -58,7 +58,7 @@ function innerChooseVoice (synthesis, ssConfig) {
     return;
   }
 
-  // Parse the comma-separated list of potential voice names
+  // Parse the comma-separated list of requested voice names
   // - prepare for lower-case '===' comparisons below.
   var voiceFamily = fixVoice(ssConfig.voiceFamily).split(/, ?/);
 
@@ -107,7 +107,7 @@ module.exports.compatible = function (ssConfig, WIN) {
   if (!isCompat) {
     $body
       .prepend(ssConfig.no_compat_msg)
-      .prepend('<style>#no-compat-simple-speak-msg { color: darkorange; }</style>');
+      .prepend('<style>.simple-speak-no-compat{color:red}</style>');
 
     if (ssConfig.throw_error) {
       throw new Error('Your browser does NOT support speech synthesis.');
@@ -130,8 +130,8 @@ module.exports.configure = function (version, WIN) {
     id: 'id-simple-speak',
     mode: 'say-html-on-submit', // Or: 'say-input', 'say-on-focus', 'spell-on-focus' etc.
     lang: 'en-US',
-    no_compat_msg: '<p id="no-compat-simple-speak-msg">Sorry! Speech synthesis is not available in your browser.</p>',
-    form: '<form id="frm-simple-speak"><button class="sp"><i>Speak</i></button><button class="cl"><i>Cancel</i></button></form>',
+    no_compat_msg: '<p id="noss" class="simple-speak-no-compat">Sorry! Speech synthesis is not available in your browser.</p>',
+    form: '<form id="fss" class="simple-speak-frm"><button class="sp"><i>Speak</i></button><button class="cl"><i>Cancel</i></button></form>',
     // input: '<label>Speech input <input id="inp-simple-speak" value="%s"></label>',
     pitch: 1,
     rate: 1,
@@ -143,7 +143,7 @@ module.exports.configure = function (version, WIN) {
   WIN = WIN || window;
 
   var $ = /* require('jquery') || */ WIN.jQuery;
-  var $config = $('div[ data-simple-speak ], script[ data-simple-speak ]').first();
+  var $config = $('div, script').filter('[data-simple-speak]').first();
   var options = $config.data();
 
   var ssConfig = $.extend(defaults, options ? options.simpleSpeak : { });
@@ -204,7 +204,10 @@ module.exports.htmlEvents = function (ssConfig, WIN) {
 
   ssConfig.$ = $;
 
+  addStylesheet(ssConfig);
+
   $elem.after($form);
+  $elem.addClass('simple-speak-js').addClass($elem.get(0).nodeName === 'INPUT' ? 'simple-speak-inp' : '');
 
   var $cancelButton = $form.find('.cl');
 
@@ -224,13 +227,22 @@ module.exports.htmlEvents = function (ssConfig, WIN) {
 
   // embedCodeDialog($form, $, ssConfig);
 
-  poweredByLink($form);
+  poweredByLink(ssConfig);
 };
 
 // 'Powered by' link.
-function poweredByLink ($form) {
+function poweredByLink (config) {
   var url = 'https://github.com/nfreear/simple-speak?utm_source=simplespeak';
-  $form.append('<a class="by" href="%s" title="Powered by simple-speak. MIT License.">simple-speak</a>'.replace(/%s/, url));
+  config.$form.append(
+    '<a class="by" href="%u" title="Powered by simple-speak v%s (MIT License)">simple-speak</a>'
+    .replace(/%u/, url).replace(/%s/, config.version));
+}
+
+function addStylesheet (config) {
+  var scriptUrl = config.$('script[ src *= simple-speak ]').attr('src');
+  var styleUrl = scriptUrl + '/../../style/simple-speak.css';
+
+  config.$('head').prepend('<link rel="stylesheet" href="%s">'.replace(/%s/, styleUrl));
 }
 
 },{}],7:[function(require,module,exports){
@@ -256,6 +268,8 @@ module.exports = {
     utterance.rate = ssConfig.rate;
     utterance.volume = ssConfig.volume;
     utterance.voice = ssConfig.voice;
+
+    ssConfig.utterance = utterance;
 
     console.warn('simplespeak submit: ', utterance, ssConfig);
 

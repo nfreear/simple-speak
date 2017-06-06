@@ -28,7 +28,7 @@ function innerChooseVoice (synthesis, ssConfig) {
     return;
   }
 
-  // Parse the comma-separated list of potential voice names
+  // Parse the comma-separated list of requested voice names
   // - prepare for lower-case '===' comparisons below.
   var voiceFamily = fixVoice(ssConfig.voiceFamily).split(/, ?/);
 

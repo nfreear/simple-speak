@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "browserify": "^14.4.0",
+    "csslint": "^1.0.5",
     "exorcist": "^0.4.0",
     "jsdom": "^9.12.0",
     "replace": "^0.3.0",
@@ -27,7 +28,7 @@
     "build": "node src/_ver.js && browserify index.js -i jquery --debug | exorcist build/simple-speak.js.map > build/simple-speak.js",
     "build-min": "uglifyjs build/simple-speak.js --comments=/^[!\\*]/ -mco build/simple-speak.min.js",
     "x-build": "browserify -i jquery src/*.orig.js -o bundle.js",
-    "test": "semistandard",
+    "test": "semistandard && csslint style/ test/style/",
     "osx-say-hi": "say -v vicki Hello, Im simple-speak.",
     "osx-voices": "say -v '?'",
     "xo": "xo"

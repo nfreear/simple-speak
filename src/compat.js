@@ -19,7 +19,7 @@ module.exports.compatible = function (ssConfig, WIN) {
   if (!isCompat) {
     $body
       .prepend(ssConfig.no_compat_msg)
-      .prepend('<style>#no-compat-simple-speak-msg { color: darkorange; }</style>');
+      .prepend('<style>.simple-speak-no-compat{color:red}</style>');
 
     if (ssConfig.throw_error) {
       throw new Error('Your browser does NOT support speech synthesis.');

@@ -18,74 +18,9 @@ h1, h2 {
   font-weight: normal;
 }
 
-form {
-  display: block;
-  margin: 1em 0 1.7em;
-}
-
-input,
-button {
-  font-size: 1.05em;
-  padding: 3px 12px;
+input {
+  padding: 3px;
   text-align: center;
-}
-
-input/*#id-simple-speak */ {
-  min-width: 18em;
-}
-
-#frm-simple-speak a,
-#frm-simple-speak button {
-  cursor: pointer;
-  display: inline-block;
-  margin-right: 8px;
-}
-
-button:before {
-  font-weight: bold;
-}
-button.X-cl:before {
-  content: '×';  /* '&times;' not letter 'X' */
-}
-
-button i {
-  font-style: normal;
-}
-button i.X {
-  display: inline-block;
-  position: absolute;
-  top: -999px;
-}
-
-
-#frm-simple-speak a,
-#frm-simple-speak .em {
-  font-size: .76em;
-  /* letter-spacing: -.02em; */
-}
-#frm-simple-speak .em {
-  padding: 5px 0;
-}
-
-#frm-simple-speak div[ role = alertdialog ] {
-  background: #eee;
-  border: 1px solid #bbb;
-  border-radius: 4px;
-  font-size: .85em;
-  line-height: 1.9em;
-  margin-top: 4px;
-  padding: 4px;
-  position: absolute;
-}
-
-#frm-simple-speak div[ role = alertdialog ] textarea {
-  border: 1px solid #bbb;
-  border-radius: 4px;
-  display: block;
-  font-size: .96em;
-  height: 5em;
-  padding: 2px;
-  width: 52em;
 }
 
 pre {
@@ -94,7 +29,7 @@ pre {
   padding-top: .5em;
 }
 
-body #XX--no-compat-simple-speak-msg {
+/* body #XX--no-compat-simple-speak-msg {
   color: darkorange;
   font-weight: bold;
-}
+}*/

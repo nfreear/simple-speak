@@ -21,6 +21,8 @@ module.exports = {
     utterance.volume = ssConfig.volume;
     utterance.voice = ssConfig.voice;
 
+    ssConfig.utterance = utterance;
+
     console.warn('simplespeak submit: ', utterance, ssConfig);
 
     // synthesis.cancel();
