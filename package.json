@@ -1,8 +1,9 @@
 {
   "name": "simple-speak",
-  "description": "Powerful wrapper around the browser Web Speech API | © Nick Freear, 28-May-2017.",
+  "description": "A powerful, straightforward wrapper around the Web Speech API in the browser.",
   "version": "1.0.0-alpha",
   "license": "MIT",
+  "keywords": [ "speech", "text-to-speech", "synthesis", "browser" ],
   "author": {
     "name": "Nick Freear {@nfreear}"
   },
@@ -27,13 +28,12 @@
   "scripts": {
     "build": "node src/_ver.js && browserify index.js -i jquery --debug | exorcist build/simple-speak.js.map > build/simple-speak.js",
     "build-min": "uglifyjs build/simple-speak.js --comments=/^[!\\*]/ -mco build/simple-speak.min.js",
-    "x-build": "browserify -i jquery src/*.orig.js -o bundle.js",
     "test": "semistandard && csslint style/ test/style/",
     "osx-say-hi": "say -v vicki Hello, Im simple-speak.",
-    "osx-voices": "say -v '?'",
-    "xo": "xo"
+    "osx-voices": "say -v '?'"
   },
   "semistandard": {
     "ignore": "build/"
-  }
+  },
+  "//": "Copyright © Nick Freear, 28-May-2017."
 }

@@ -6,10 +6,10 @@ module.exports.compatible = function (ssConfig, WIN) {
 
   WIN = WIN || window;
 
-  var isCompat = ssConfig.is_compatible = ('speechSynthesis' in WIN);
+  var isCompat = ssConfig.isCompatible = ('speechSynthesis' in WIN);
 
-  if (ssConfig.override_compat) {
-    isCompat = ssConfig.is_compatible = false; // Test configuration!
+  if (ssConfig.overrideCompat) {
+    isCompat = ssConfig.isCompatible = false; // Test configuration!
   }
 
   var $body = WIN.jQuery('body');
@@ -18,10 +18,10 @@ module.exports.compatible = function (ssConfig, WIN) {
 
   if (!isCompat) {
     $body
-      .prepend(ssConfig.no_compat_msg)
-      .prepend('<style>.simple-speak-no-compat{color:red}</style>');
+      .prepend(ssConfig.noCompatMsg)
+      .prepend('<style>.simple-speak-no-compat-msg{color:red}</style>');
 
-    if (ssConfig.throw_error) {
+    if (ssConfig.throwError) {
       throw new Error('Your browser does NOT support speech synthesis.');
     }
 

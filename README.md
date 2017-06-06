@@ -46,6 +46,18 @@ Speak a text form-field, configure an alternative voice:
 <script src="../build/simple-speak.js" data-simple-speak='{ "voiceFamily": "Vicki" }'></script>
 ```
 
+### Localized
+
+Simplified Chinese - [`Hello auntie`][zh-cn]:
+
+```html
+<div id="id-simple-speak"> 你好阿姨 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../build/simple-speak.js"
+        data-simple-speak='{ "lang": "zh-cn", "voiceFamily": "Google 普通话（中国大陆）" }'></script>
+```
+
 ### CDN usage
 
 Use [Javascript hosted][rel] on a CDN — [RawGit][]:
@@ -85,6 +97,8 @@ License: [MIT][].
 [semi]: https://github.com/Flet/semistandard
 [semi-icon]: https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square
   "Javascript coding style — 'semistandard'"
+[zh-cn]: https://translate.google.com/?source=osdd#auto/zh-CN/Hello%20auntie
+  "'Hello auntie' in Simplified Chinese, Google Translate."
 
 [compat]: https://docs.google.com/spreadsheets/d/1i3Czp0nGnI-a5gSJbLv3RLLoK0JWZBvr0L4XVna8OZU/#gid=0
   "Browser compatibility tests; count of available voices (Google Docs)"

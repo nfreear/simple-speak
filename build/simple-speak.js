@@ -94,10 +94,10 @@ module.exports.compatible = function (ssConfig, WIN) {
 
   WIN = WIN || window;
 
-  var isCompat = ssConfig.is_compatible = ('speechSynthesis' in WIN);
+  var isCompat = ssConfig.isCompatible = ('speechSynthesis' in WIN);
 
-  if (ssConfig.override_compat) {
-    isCompat = ssConfig.is_compatible = false; // Test configuration!
+  if (ssConfig.overrideCompat) {
+    isCompat = ssConfig.isCompatible = false; // Test configuration!
   }
 
   var $body = WIN.jQuery('body');
@@ -106,10 +106,10 @@ module.exports.compatible = function (ssConfig, WIN) {
 
   if (!isCompat) {
     $body
-      .prepend(ssConfig.no_compat_msg)
-      .prepend('<style>.simple-speak-no-compat{color:red}</style>');
+      .prepend(ssConfig.noCompatMsg)
+      .prepend('<style>.simple-speak-no-compat-msg{color:red}</style>');
 
-    if (ssConfig.throw_error) {
+    if (ssConfig.throwError) {
       throw new Error('Your browser does NOT support speech synthesis.');
     }
 
@@ -130,7 +130,7 @@ module.exports.configure = function (version, WIN) {
     id: 'id-simple-speak',
     mode: 'say-html-on-submit', // Or: 'say-input', 'say-on-focus', 'spell-on-focus' etc.
     lang: 'en-US',
-    no_compat_msg: '<p id="noss" class="simple-speak-no-compat">Sorry! Speech synthesis is not available in your browser.</p>',
+    noCompatMsg: '<p class="simple-speak-no-compat-msg" role="alert">Sorry! Speech synthesis is not available in your browser.</p>',
     form: '<form id="fss" class="simple-speak-frm"><button class="sp"><i>Speak</i></button><button class="cl"><i>Cancel</i></button></form>',
     // input: '<label>Speech input <input id="inp-simple-speak" value="%s"></label>',
     pitch: 1,
@@ -143,7 +143,7 @@ module.exports.configure = function (version, WIN) {
   WIN = WIN || window;
 
   var $ = /* require('jquery') || */ WIN.jQuery;
-  var $config = $('div, script').filter('[data-simple-speak]').first();
+  var $config = $('div, script').filter('[ data-simple-speak ]').first();
   var options = $config.data();
 
   var ssConfig = $.extend(defaults, options ? options.simpleSpeak : { });
