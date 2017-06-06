@@ -3,7 +3,7 @@
   "description": "A powerful, straightforward wrapper around the Web Speech API in the browser.",
   "version": "1.0.0-alpha",
   "license": "MIT",
-  "keywords": [ "speech", "text-to-speech", "synthesis", "browser" ],
+  "keywords": [ "speech synthesis", "speak", "tts", "text to speech", "text-to-speech", "browser tts" ],
   "author": {
     "name": "Nick Freear {@nfreear}"
   },

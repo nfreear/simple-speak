@@ -1,5 +1,6 @@
 
 [![Build status — Travis-CI][travis-icon]][travis]
+[![simple-speak on Npmjs][npm-icon]][npm]
 [![js-semistandard-style][semi-icon]][semi]
 
 
@@ -97,6 +98,8 @@ License: [MIT][].
 [semi]: https://github.com/Flet/semistandard
 [semi-icon]: https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square
   "Javascript coding style — 'semistandard'"
+[npm]: https://npmjs.com/package/simple-speak
+[npm-icon]: https://img.shields.io/npm/v/simple-speak.svg
 [zh-cn]: https://translate.google.com/?source=osdd#auto/zh-CN/Hello%20auntie
   "'Hello auntie' in Simplified Chinese, Google Translate."
 
