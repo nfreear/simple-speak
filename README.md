@@ -29,6 +29,15 @@ npm test
 
 ## Usage
 
+Use [Javascript hosted][rel] on a CDN — [RawGit][]:
+
+```html
+<div id="id-simple-speak"> Hello. I'm simple-speak. </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/nfreear/simple-speak/1.1-beta/build/simple-speak.js"></script>
+```
+
 Speak static text within an arbitrary HTML `<element>` — zero-configuration:
 
 ```html
@@ -49,7 +58,7 @@ Speak a text form-field, configure an alternative voice:
 
 ### Localized
 
-Simplified Chinese - [`Hello auntie`][zh-cn]:
+Simplified Chinese — [`Hello auntie`][zh-cn]:
 
 ```html
 <div id="id-simple-speak"> 你好阿姨 </div>
@@ -57,17 +66,6 @@ Simplified Chinese - [`Hello auntie`][zh-cn]:
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="../build/simple-speak.js"
         data-simple-speak='{ "lang": "zh-cn", "voiceFamily": "Google 普通话（中国大陆）" }'></script>
-```
-
-### CDN usage
-
-Use [Javascript hosted][rel] on a CDN — [RawGit][]:
-
-```html
-<div id="id-simple-speak"> Hello. I'm simple-speak. </div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="https://cdn.rawgit.com/nfreear/simple-speak/1.0-alpha/build/simple-speak.js"></script>
 ```
 
 
@@ -79,7 +77,7 @@ License: [MIT][].
 
 
 [gh]: https://github.com/nfreear/simple-speak
-[rel]: https://github.com/nfreear/simple-speak/releases "Work-in-progress! (Tagged release/ version)"
+[rel]: https://github.com/nfreear/simple-speak/releases "A tagged release/ version"
 [@nfreear]: https://twitter.com/nfreear "Twitter: @nfreear"
 [blog]: http://nick.freear.org.uk "Nick Freear's blog"
 [moz]: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
@@ -89,7 +87,7 @@ License: [MIT][].
 [gist-v]: https://gist.github.com/nfreear/4de02b347d61cb3650b89e11162d7d6a "Gist: get-voices.js.html"
 [Browserify]: https://github.com/substack/browserify-handbook#introduction
 [RawGit]: https://rawgit.com/
-  "Serves Git files with the correct mime-type; content delivery network (CDN)"
+  "RawGit serves Git files with the correct mime-type; a content delivery network (CDN)"
 [MIT]: https://nfreear.mit-license.org/2017#!-simple-speak "MIT License"
 [caniuse]: https://caniuse.com/#feat=speech-synthesis "Check browser compatibility (caniuse)"
 [travis]: https://travis-ci.org/nfreear/simple-speak

@@ -8,7 +8,7 @@
 (function () {
   'use strict';
 
-  var VERSION_TAG = '1.0-alpha'; // <Auto>
+  var VERSION_TAG = '1.1-alpha'; // <Auto>
   // var VERSION_TAG = require('./src/version');
 
   var config = require('./src/configure').configure(VERSION_TAG);
@@ -137,13 +137,13 @@ module.exports.configure = function (version, WIN) {
     rate: 1,
     volume: 1,
     voice: null,
-    voiceFamily: 'Kathy, female' // Comma-separated list: 'Agnes, Microsoft Anna - ... , female'
+    voiceFamily: null // Comma-separated list: 'Agnes, Microsoft Anna - ... , Kathy, female'
   };
 
   WIN = WIN || window;
 
   var $ = /* require('jquery') || */ WIN.jQuery;
-  var $config = $('div, script').filter('[ data-simple-speak ]').first();
+  var $config = $('div, script, input').filter('[ data-simple-speak ]').first();
   var options = $config.data();
 
   var ssConfig = $.extend(defaults, options ? options.simpleSpeak : { });

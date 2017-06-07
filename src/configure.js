@@ -15,13 +15,13 @@ module.exports.configure = function (version, WIN) {
     rate: 1,
     volume: 1,
     voice: null,
-    voiceFamily: 'Kathy, female' // Comma-separated list: 'Agnes, Microsoft Anna - ... , female'
+    voiceFamily: null // Or: a comma-separated list: 'Agnes, Microsoft Anna - ... , Kathy, female'
   };
 
   WIN = WIN || window;
 
   var $ = /* require('jquery') || */ WIN.jQuery;
-  var $config = $('div, script').filter('[ data-simple-speak ]').first();
+  var $config = $('div, script, input').filter('[ data-simple-speak ]').first();
   var options = $config.data();
 
   var ssConfig = $.extend(defaults, options ? options.simpleSpeak : { });

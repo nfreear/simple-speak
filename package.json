@@ -1,7 +1,7 @@
 {
   "name": "simple-speak",
   "description": "A powerful, straightforward wrapper around the Web Speech API in the browser.",
-  "version": "1.0.0-alpha",
+  "version": "1.1.0-beta",
   "license": "MIT",
   "keywords": [ "speech synthesis", "speak", "tts", "text to speech", "text-to-speech", "browser tts" ],
   "author": {

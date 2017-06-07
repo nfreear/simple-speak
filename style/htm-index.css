@@ -1,0 +1,96 @@
+/*!
+  Embed simple-speak | © 2017 Nick Freear | License: MIT.
+*/
+
+body {
+  background: #fff;
+  color: #333;
+  font: 1em sans-serif;
+  margin: 1em auto;
+  max-width: 36em;
+}
+
+h1 {
+  font-weight: normal;
+}
+
+input {
+  margin-left: 6px;
+  padding: 3px;
+  text-align: center;
+}
+
+.is-embed { /* body */
+  margin: 2px;
+}
+
+.is-embed .simple-speak-frm .em,
+.is-embed .h1 {
+  display: none;
+}
+
+
+/* codepo8-fork: https://codepo8.github.io/css-fork-on-github-ribbon/ */
+
+.forkongithub a {
+    background: #013;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 2rem;
+    padding: 5px 40px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.forkongithub a:hover,
+.forkongithub a:focus {
+    background: #057;
+    color: #fff;
+}
+.forkongithub a::before,
+.forkongithub a::after {
+    background: #fff;
+    content: "";
+    display: block;
+    height: 1px;
+    left: 0;
+    position: absolute;
+    top: 1px;
+    width: 100%;
+}
+.forkongithub a::after {
+    bottom: 1px;
+    top: auto;
+}
+@media screen and (min-width: 800px) {
+    .forkongithub {
+        display: block;
+        height: 200px;
+        overflow: hidden;
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 200px;
+        z-index: 9999;
+    }
+    .forkongithub a {
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+        position: absolute;
+        right: -60px;
+        top: 60px;
+        transform: rotate(45deg);
+        /* -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg); */
+        width: 200px;
+    }
+}
+
+/* End: codepo8-fork */
+
+.is-embed .forkongithub {
+  display: none;
+}
