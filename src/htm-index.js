@@ -4,8 +4,18 @@
   https://github.com/nfreear/simple-speak
 */
 
+/* eslint-disable */
+(function(i, s, o, g, r, a, m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+/* eslind-enable */
+
 window.jQuery(function ($) {
   'use strict';
+
+  window.ga('create', 'UA-8330079-8', 'auto');
+  window.ga('send', 'pageview');
 
   var script = 'https://cdn.rawgit.com/nfreear/simple-speak/1.0-alpha/build/simple-speak.js';
   var query = window.location.search;
@@ -31,5 +41,6 @@ window.jQuery(function ($) {
   } else {
     $body.after('<script src="../build/simple-speak.js"></scr' + 'ipt>');
   }
+
   $body.addClass(isEmbed ? 'is-embed' : 'no-embed');
 });
