@@ -8,6 +8,10 @@ module.exports = {
 
     WIN = WIN || window;
 
+    if (!ssConfig.say.trim()) {
+      return console.warn('simplespeak: nothing to say: ', ssConfig);
+    }
+
     var synthesis = WIN.speechSynthesis;
 
     var utterance = new WIN.SpeechSynthesisUtterance(ssConfig.say);

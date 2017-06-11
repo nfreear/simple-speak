@@ -24,12 +24,16 @@ window.jQuery(function ($) {
   var mqLang = query.match(/lang=([\w-]+)&?/);
   var mqText = query.match(/q=([^&]+)&?/);
   var text = mqText ? mqText[ 1 ] : 'Hello. I\'m simple-speak';
+  var lang = mqLang ? mqLang[ 1 ] : 'en';
   var config = {
-    lang: mqLang ? mqLang[ 1 ] : 'en',
+    lang: lang,
+    style: false,
     embed: isEmbed
   };
   var $elem = $('#id-simple-speak');
   var $body = $('body');
+
+  config.voiceFamily = lang === 'en' ? 'Google UK English Female' : null;
 
   $elem.val(decodeURIComponent(text));
   $elem.attr('data-simple-speak', JSON.stringify(config));
