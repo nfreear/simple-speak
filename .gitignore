@@ -1,15 +1,25 @@
-version.js
-*.js.map
 
-# build/simple-speak.js
-bundle.js
+htm/oembed.json
+htm/opensearch*.xml
+*.jsdoced.js
+
+docs/
+out/
+src/version.js
+build/*.js.map
+
 *.min.js
 beep.js
 *copy*
+*BAK*
+
 # *test.js
 *.html
+!htm/index.html
 !test/index.html
 !get-voices.html
 *.log
 *.diff
 node_modules
+composer.*
+vendor
