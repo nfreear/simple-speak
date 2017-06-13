@@ -10,7 +10,7 @@
 (function () {
   'use strict';
 
-  var VERSION_TAG = '1.1-beta'; // <Auto>
+  var VERSION_TAG = '1.2-beta'; // <Auto>
 
   var config = require('./src/configure').configure(VERSION_TAG);
 

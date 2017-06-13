@@ -35,7 +35,7 @@ Use [Javascript hosted][rel] on a CDN — [RawGit][]:
 <div id="id-simple-speak"> Hello. I'm simple-speak. </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="https://cdn.rawgit.com/nfreear/simple-speak/1.1-beta/build/simple-speak.js"></script>
+<script src="https://cdn.rawgit.com/nfreear/simple-speak/1.2-beta/build/simple-speak.js"></script>
 ```
 
 Speak static text within an arbitrary HTML `<element>` — zero-configuration:
@@ -76,7 +76,7 @@ You can embed `simple-speak` in an `<iframe>`, and optionally set a language:
 <iframe
   aria-label="Speech synthesis"
   class="simple-speak-ifr" width="100%" height="75"
-  src="https://cdn.rawgit.com/nfreear/simple-speak/1.1-beta/htm/?embed;lang=fr;q=Bonjoour"></iframe>
+  src="https://cdn.rawgit.com/nfreear/simple-speak/1.2-beta/htm/?embed;lang=fr;q=Bonjoour"></iframe>
 ```
 
 ## License
