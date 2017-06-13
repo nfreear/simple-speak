@@ -17,9 +17,9 @@ window.jQuery(function ($) {
   window.ga('create', 'UA-8330079-8', 'auto');
   window.ga('send', 'pageview');
 
-  var script = 'https://cdn.rawgit.com/nfreear/simple-speak/1.0-alpha/build/simple-speak.js';
+  var script = 'https://cdn.rawgit.com/nfreear/simple-speak/1.1-beta/build/simple-speak.js';
   var query = window.location.search;
-  var isEmbed = query.match(/embed=1/);
+  var isEmbed = /[#?&;]embed[=&;]/.test(query);
   var useCdn = query.match(/cdn=1/);
   var mqLang = query.match(/lang=([\w-]+)&?/);
   var mqText = query.match(/q=([^&]+)&?/);

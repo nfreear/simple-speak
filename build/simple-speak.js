@@ -5,11 +5,12 @@
   https://github.com/nfreear/simple-speak
 */
 
+
+
 (function () {
   'use strict';
 
   var VERSION_TAG = '1.1-beta'; // <Auto>
-  // var VERSION_TAG = require('./src/version');
 
   var config = require('./src/configure').configure(VERSION_TAG);
 
@@ -28,13 +29,14 @@
 })();
 
 },{"./src/choose-voice":2,"./src/compat":3,"./src/configure":4,"./src/embed-dialog":5,"./src/html-events":6,"./src/speak-methods":7}],2:[function(require,module,exports){
+(function (global){
 
-// Choose a synthesiser voice | © Nick Freear.
+
 
 module.exports.chooseVoice = function (ssConfig, WIN) {
   'use strict';
 
-  WIN = WIN || window;
+  WIN = WIN || global;
 
   var synthesis = WIN.speechSynthesis;
 
@@ -81,18 +83,21 @@ function innerChooseVoice (synthesis, ssConfig) {
 }
 
 function fixVoice (name) {
-  var shorten = name.replace('(United States)', '(US)').replace(/'"/g, '');
-  return shorten.toLowerCase();
+  var short = name && name.replace('(United States)', '(US)').replace(/'"/g, '');
+  return short && short.toLowerCase();
 }
 
-},{}],3:[function(require,module,exports){
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-// Check compatibility | © Nick Freear.
+},{}],3:[function(require,module,exports){
+(function (global){
+
+
 
 module.exports.compatible = function (ssConfig, WIN) {
   'use strict';
 
-  WIN = WIN || window;
+  WIN = WIN || global; // window.
 
   var isCompat = ssConfig.isCompatible = ('speechSynthesis' in WIN);
 
@@ -119,42 +124,49 @@ module.exports.compatible = function (ssConfig, WIN) {
   return isCompat;
 };
 
-},{}],4:[function(require,module,exports){
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-// Configure | © Nick Freear.
+},{}],4:[function(require,module,exports){
+(function (global){
+
+
 
 module.exports.configure = function (version, WIN) {
   'use strict';
 
+  
   var defaults = {
-    id: 'id-simple-speak',
+    id: 'id-simple-speak',  // ID of HTML element.
     mode: 'say-html-on-submit', // Or: 'say-input', 'say-on-focus', 'spell-on-focus' etc.
     lang: 'en-US',
     noCompatMsg: '<p class="simple-speak-no-compat-msg" role="alert">Sorry! Speech synthesis is not available in your browser.</p>',
     form: '<form id="simple-speak-frm" class="simple-speak-frm"><button class="sp" type="submit"><i>Speak</i></button><button class="cl"><i>Cancel</i></button></form>',
     // input: '<label>Speech input <input id="inp-simple-speak" value="%s"></label>',
-    style: true,
-    pitch: 1,
+    style: true,  // (bool) Should simple-speak stylesheet be injected?
+    pitch: 1,     // (float) Range: 0 ~ 2.
     rate: 1,
     volume: 1,
     voice: null,
-    voiceFamily: null // Or: a comma-separated list: 'Agnes, Microsoft Anna - ... , Kathy, female'
+    voiceFamily: null
   };
 
-  WIN = WIN || window;
+  WIN = WIN || global; // window.
 
-  var $ = /* require('jquery') || */ WIN.jQuery;
+  var $ =  WIN.jQuery;
   var $config = $('div, script, input').filter('[ data-simple-speak ]').first();
   var options = $config.data();
 
   var ssConfig = $.extend(defaults, options ? options.simpleSpeak : { });
 
   ssConfig.version = version;
+  ssConfig.global = WIN;
 
   console.warn('simplespeak config:', options, $config);
 
   return ssConfig;
 };
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
 },{}],5:[function(require,module,exports){
 
@@ -190,13 +202,14 @@ module.exports.embedDialog = function (ssConfig) {
 };
 
 },{}],6:[function(require,module,exports){
+(function (global){
 
 // Manipulate the HTML page, and setup user-events | © Nick Freear.
 
 module.exports.htmlEvents = function (ssConfig, WIN) {
   'use strict';
 
-  WIN = WIN || window;
+  WIN = WIN || global;
 
   var $ = WIN.jQuery;
 
@@ -256,7 +269,10 @@ function addStylesheet (config) {
   }
 }
 
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+
 },{}],7:[function(require,module,exports){
+(function (global){
 
 // Synthesiser methods - speak and cancel an utterance | © Nick Freear.
 
@@ -265,7 +281,7 @@ module.exports = {
   speak: function (ssConfig, WIN) {
     'use strict';
 
-    WIN = WIN || window;
+    WIN = WIN || global;
 
     if (!ssConfig.say.trim()) {
       return console.warn('simplespeak: nothing to say: ', ssConfig);
@@ -293,13 +309,15 @@ module.exports = {
   },
 
   cancel: function (WIN) {
-    WIN = WIN || window;
+    WIN = WIN || global;
 
     WIN.speechSynthesis.cancel();
 
     console.warn('simplespeak cancel');
   }
 };
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
 },{}]},{},[1])
 //# sourceMappingURL=simple-speak.js.map

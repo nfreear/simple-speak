@@ -38,7 +38,7 @@
     "build": "node src/_ver.js && npm run jsdoc && npm run browserify",
     "build-min": "uglifyjs build/simple-speak.js --comments=/^[!]/ -mco build/simple-speak.min.js",
     "test": "semistandard && csslint style/ test/style/",
-    "browserify": "browserify index.js --debug | exorcist build/simple-speak.js.map > build/simple-speak.js",
+    "browserify": "browserify index.js --debug | exorcist build/simple-speak.js.map | src/_unc.js > build/simple-speak.js",
     "jsdoc": "jsdoc --private --verbose index.js src/ -R README.md",
     "jsdoc-x": "jsdoc --verbose index.js src/ -R README.md -t docs/jsdoc/template/",
     "doc-x": "replace '<\\/body>' '<script>console.warn(\"Hi\")</script>' out/. -r --include=\"*.html\"",

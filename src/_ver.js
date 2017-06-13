@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /*!
   CLI. Implant `package.version` in index.js, README.md etc.
 
