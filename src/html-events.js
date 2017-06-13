@@ -4,7 +4,7 @@
 module.exports.htmlEvents = function (ssConfig, WIN) {
   'use strict';
 
-  WIN = WIN || window;
+  WIN = WIN || global;
 
   var $ = WIN.jQuery;
 

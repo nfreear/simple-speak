@@ -25,6 +25,14 @@ replace({
 });
 
 replace({
+  paths: [ INDEX_JS ],
+  regex: /@version \d\.\d(-[.\w]+)?/,
+  replacement: version('@version %s'),
+  count: true,
+  recursive: false
+});
+
+replace({
   paths: [ README ],
   regex: /cdn.rawgit.com\/nfreear\/simple-speak\/(\d\.\d(-[.\w]+)?)\//g,
   replacement: version('cdn.rawgit.com/nfreear/simple-speak/%s/'),

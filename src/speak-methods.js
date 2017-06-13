@@ -6,7 +6,7 @@ module.exports = {
   speak: function (ssConfig, WIN) {
     'use strict';
 
-    WIN = WIN || window;
+    WIN = WIN || global;
 
     if (!ssConfig.say.trim()) {
       return console.warn('simplespeak: nothing to say: ', ssConfig);
@@ -34,7 +34,7 @@ module.exports = {
   },
 
   cancel: function (WIN) {
-    WIN = WIN || window;
+    WIN = WIN || global;
 
     WIN.speechSynthesis.cancel();
 

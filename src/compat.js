@@ -1,10 +1,19 @@
 
-// Check compatibility | © Nick Freear.
+/**
+ * Check browser compatibility. Add warning to page if not compatible | © Nick Freear.
+ *
+ * @function compatible
+ * @memberof simple-speak
+ * @param {Object} config - The configuration object
+ * @param {string} [WIN] - Window object (for testing)
+ * @returns {boolean} A flag - is the browser compatible?
+ * @private
+ */
 
 module.exports.compatible = function (ssConfig, WIN) {
   'use strict';
 
-  WIN = WIN || window;
+  WIN = WIN || global; // window.
 
   var isCompat = ssConfig.isCompatible = ('speechSynthesis' in WIN);
 

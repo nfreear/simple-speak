@@ -47,7 +47,7 @@ Speak static text within an arbitrary HTML `<element>` — zero-configuration:
 <script src="../build/simple-speak.js"></script>
 ```
 
-Speak a text form-field, configure an alternative voice:
+Speak a text form-field, configure an alternative voice ([configuration][cfg]):
 
 ```html
 <label>Speech input <input id="id-simple-speak" value="Hi. I'm a text input box!"></label>
@@ -68,16 +68,31 @@ Simplified Chinese — [`Hello auntie`][zh-cn]:
         data-simple-speak='{ "lang": "zh-cn", "voiceFamily": "Google 普通话（中国大陆）" }'></script>
 ```
 
+### iframe
+
+You can embed `simple-speak` in an `<iframe>`, and optionally set a language:
+
+```html
+<iframe
+  aria-label="Speech synthesis"
+  class="simple-speak-ifr" width="100%" height="75"
+  src="https://cdn.rawgit.com/nfreear/simple-speak/1.1-beta/htm/?embed=1&lang=fr&q=Bonjoour"></iframe>
+```
+
+<iframe aria-label="Speech synthesis" class="simple-speak-ifr"
+  src="https://cdn.rawgit.com/nfreear/simple-speak/1.1-beta/htm/?embed=1&lang=fr&q=Bonjoour"></iframe>
 
 ## License
 
 License: [MIT][].
 
-© 2017 [Nick Freear][blog]. [@nfreear][].
+© 2017 [Nick Freear][blog] and contributors. [@nfreear][].
 
 
 [gh]: https://github.com/nfreear/simple-speak
 [rel]: https://github.com/nfreear/simple-speak/releases "A tagged release/ version"
+[cfg]: https://github.com/nfreear/simple-speak/blob/master/src/configure.js#L14-L46
+  "Configuration options & defaults."
 [@nfreear]: https://twitter.com/nfreear "Twitter: @nfreear"
 [blog]: http://nick.freear.org.uk "Nick Freear's blog"
 [moz]: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis

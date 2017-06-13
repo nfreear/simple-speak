@@ -3,7 +3,9 @@
   "description": "A powerful, straightforward wrapper around the Web Speech API in the browser.",
   "version": "1.1.0-beta",
   "license": "MIT",
-  "keywords": [ "speech synthesis", "speak", "tts", "text to speech", "text-to-speech", "browser tts" ],
+  "keywords": [
+    "speech synthesis", "speak", "tts", "text to speech", "text-to-speech", "browser tts"
+  ],
   "author": {
     "name": "Nick Freear {@nfreear}"
   },
@@ -12,6 +14,9 @@
     "type": "git",
     "url": "https://github.com/nfreear/simple-speak"
   },
+  "bugs": {
+    "url": "https://github.com/nfreear/simple-speak/issues"
+  },
   "dependencies": {
     "jquery": "^2.2.4"
   },
@@ -19,16 +24,24 @@
     "browserify": "^14.4.0",
     "csslint": "^1.0.5",
     "exorcist": "^0.4.0",
+    "jsdoc": "^3.4.3",
     "jsdom": "^9.12.0",
     "replace": "^0.3.0",
     "semistandard": "^11.0.0",
     "uglify-js": "^3.0.14",
     "xo": "^0.18.2"
   },
+  "engines": {
+    "node": ">= 4.0.0"
+  },
   "scripts": {
-    "build": "node src/_ver.js && browserify index.js -i jquery --debug | exorcist build/simple-speak.js.map > build/simple-speak.js",
-    "build-min": "uglifyjs build/simple-speak.js --comments=/^[!\\*]/ -mco build/simple-speak.min.js",
+    "build": "node src/_ver.js && npm run jsdoc && npm run browserify",
+    "build-min": "uglifyjs build/simple-speak.js --comments=/^[!]/ -mco build/simple-speak.min.js",
     "test": "semistandard && csslint style/ test/style/",
+    "browserify": "browserify index.js --debug | exorcist build/simple-speak.js.map > build/simple-speak.js",
+    "jsdoc": "jsdoc --private --verbose index.js src/ -R README.md",
+    "jsdoc-x": "jsdoc --verbose index.js src/ -R README.md -t docs/jsdoc/template/",
+    "doc-x": "replace '<\\/body>' '<script>console.warn(\"Hi\")</script>' out/. -r --include=\"*.html\"",
     "osx-say-hi": "say -v vicki Hello, Im simple-speak.",
     "osx-voices": "say -v '?'"
   },

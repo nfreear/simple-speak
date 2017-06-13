@@ -1,10 +1,19 @@
 
-// Choose a synthesiser voice | © Nick Freear.
+/**
+ * Choose a synthesiser voice, based on the "voiceFamily" property | © Nick Freear.
+ *
+ * @function chooseVoice
+ * @memberof simple-speak
+ * @param {Object} config - The configuration object
+ * @param {string} [WIN] - Window object (for testing)
+ * @return {Object} The configuration object, with the "voice" property added.
+ * @private
+ */
 
 module.exports.chooseVoice = function (ssConfig, WIN) {
   'use strict';
 
-  WIN = WIN || window;
+  WIN = WIN || global;
 
   var synthesis = WIN.speechSynthesis;
 
