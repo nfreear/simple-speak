@@ -160,11 +160,28 @@ module.exports.configure = function (version, WIN) {
 
   ssConfig.version = version;
   ssConfig.global = WIN;
+  ssConfig.processText = processText;
 
   console.warn('simplespeak config:', options, $config);
 
   return ssConfig;
 };
+
+
+
+
+function processText (ssConfig) {
+  ssConfig.text = ssConfig.text.trim();
+
+  if (!ssConfig.text) return ssConfig;
+
+  // https://stackoverflow.com/questions/30279778/javascript-regex-spaces-between-characters
+  if (/^spell/i.test(ssConfig.mode)) {  // Was: ssConfig.mode === 'spell'
+    ssConfig.text_orig = ssConfig.text;
+    ssConfig.text = ssConfig.text.replace(/(.)(?=.)/g, '$1 ');  // NO? .replace(/  /g, ' ');
+  }
+  return ssConfig;
+}
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
@@ -236,7 +253,9 @@ module.exports.htmlEvents = function (ssConfig, WIN) {
   });
 
   $form.on('submit', function (ev) {
-    ssConfig.say = $elem.text() || $elem.val();
+    ssConfig.text = $elem.text() || $elem.val();
+
+    ssConfig.processText(ssConfig);
 
     ssConfig.synth.speak(ssConfig);
 
@@ -283,13 +302,13 @@ module.exports = {
 
     WIN = WIN || global;
 
-    if (!ssConfig.say.trim()) {
+    if (!ssConfig.text) {
       return console.warn('simplespeak: nothing to say: ', ssConfig);
     }
 
     var synthesis = WIN.speechSynthesis;
 
-    var utterance = new WIN.SpeechSynthesisUtterance(ssConfig.say);
+    var utterance = new WIN.SpeechSynthesisUtterance(ssConfig.text);
 
     utterance.onerror = function (ex) {
       console.error('simplespeak error: ', ex);

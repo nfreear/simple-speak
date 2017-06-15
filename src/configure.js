@@ -21,9 +21,9 @@ module.exports.configure = function (version, WIN) {
    * @prop {string} defaults.id ID of HTML element to be spoken
    * @prop {string} defaults... (Incomplete)
    * @prop {boolean} defaults.style - Should the simple-speak stylesheet be injected in the page? (Default: true)
-   * @prop {float} defaults.pitch  - Range: 0 ~ 2.
-   * @prop {float} defaults.rate   - Range: 0.1 ~ 10.
-   * @prop {float} defaults.volume - Range: 0 ~ 1.
+   * @prop {float} defaults.pitch  - Range: 0 ~ 2. Default: 1.
+   * @prop {float} defaults.rate   - Range: 0.1 ~ 10. Default: 1.
+   * @prop {float} defaults.volume - Range: 0 ~ 1. Default: 1.
    * @prop {SpeechSynthesisVoice} defaults.voice - Browser object. Initially null.
    * @prop {string} defaults.voiceFamily - A comma-separated list, for example, "Agnes, Microsoft Anna - ... , Kathy, female" (Default: null)
    * @prop {Object} defaults... - These are derived and added later: 'utterance', 'global', $, $elem, version ...
@@ -55,8 +55,33 @@ module.exports.configure = function (version, WIN) {
 
   ssConfig.version = version;
   ssConfig.global = WIN;
+  ssConfig.processText = processText;
 
   console.warn('simplespeak config:', options, $config);
 
   return ssConfig;
 };
+
+/** @namespace simple-speak:private */
+
+/**
+ * Process the text for 'say' / 'speak', 'spell' and other modes.
+ *
+ * @function processText
+ * @memberof simple-speak:private
+ * @param {Object} config - The configuration object
+ * @returns {Object} The configuration object
+ * @private
+ */
+function processText (ssConfig) {
+  ssConfig.text = ssConfig.text.trim();
+
+  if (!ssConfig.text) return ssConfig;
+
+  // https://stackoverflow.com/questions/30279778/javascript-regex-spaces-between-characters
+  if (/^spell/i.test(ssConfig.mode)) {  // Was: ssConfig.mode === 'spell'
+    ssConfig.text_orig = ssConfig.text;
+    ssConfig.text = ssConfig.text.replace(/(.)(?=.)/g, '$1 ');  // NO? .replace(/  /g, ' ');
+  }
+  return ssConfig;
+}

@@ -8,13 +8,13 @@ module.exports = {
 
     WIN = WIN || global;
 
-    if (!ssConfig.say.trim()) {
+    if (!ssConfig.text) {
       return console.warn('simplespeak: nothing to say: ', ssConfig);
     }
 
     var synthesis = WIN.speechSynthesis;
 
-    var utterance = new WIN.SpeechSynthesisUtterance(ssConfig.say);
+    var utterance = new WIN.SpeechSynthesisUtterance(ssConfig.text);
 
     utterance.onerror = function (ex) {
       console.error('simplespeak error: ', ex);

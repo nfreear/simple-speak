@@ -31,7 +31,9 @@ module.exports.htmlEvents = function (ssConfig, WIN) {
   });
 
   $form.on('submit', function (ev) {
-    ssConfig.say = $elem.text() || $elem.val();
+    ssConfig.text = $elem.text() || $elem.val();
+
+    ssConfig.processText(ssConfig);
 
     ssConfig.synth.speak(ssConfig);
 

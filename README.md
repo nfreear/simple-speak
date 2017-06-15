@@ -4,7 +4,8 @@
 [![js-semistandard-style][semi-icon]][semi]
 [![License][license-icon]][mit]
 [![Total downloads ~ NPMJS.com][downl-icon]][npm]
-
+[![Size of Javascript][size-icon]][build]
+[![Browserify][built-icon]][gh]
 
 # nfreear / simple-speak
 
@@ -17,7 +18,7 @@ Web [browser compatibility][caniuse]:
 * Compatible ~ recent Chrome, Firefox, Safari and Microsoft Edge,
 * Not compatible ~ MS Internet Explorer.
 
-Read the [blog post][]. An [original Gist][gist].
+Read the [blog post][]. [Suggest features and uses ![.][wish-icon]][wish]. (_An [original Gist][gist]._)
 
 ## Install and test
 
@@ -46,7 +47,7 @@ Speak static text within an arbitrary HTML `<element>` — zero-configuration:
 <div id="id-simple-speak"> Hello. I'm simple-speak. </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="../build/simple-speak.js"></script>
+<script src="build/simple-speak.js"></script>
 ```
 
 Speak a text form-field, configure an alternative voice ([configuration][cfg]):
@@ -55,7 +56,7 @@ Speak a text form-field, configure an alternative voice ([configuration][cfg]):
 <label>Speech input <input id="id-simple-speak" value="Hi. I'm a text input box!"></label>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="../build/simple-speak.js" data-simple-speak='{ "voiceFamily": "Vicki" }'></script>
+<script src="build/simple-speak.js" data-simple-speak='{ "voiceFamily": "Vicki" }'></script>
 ```
 
 ### Localized
@@ -66,11 +67,20 @@ Simplified Chinese — [`Hello auntie`][zh-cn]:
 <div id="id-simple-speak"> 你好阿姨 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="../build/simple-speak.js"
+<script src="build/simple-speak.js"
         data-simple-speak='{ "lang": "zh-cn", "voiceFamily": "Google 普通话（中国大陆）" }'></script>
 ```
 
-### iframe
+### Spell
+
+```html
+<div id="id-simple-speak"> Spell me! </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="build/simple-speak.js" data-simple-speak='{ "mode": "spell" }'></script>
+```
+
+### Iframe
 
 You can embed `simple-speak` in an `<iframe>`, and optionally set a language:
 
@@ -79,6 +89,14 @@ You can embed `simple-speak` in an `<iframe>`, and optionally set a language:
   aria-label="Speech synthesis"
   class="simple-speak-ifr" width="100%" height="75"
   src="https://cdn.rawgit.com/nfreear/simple-speak/1.2-beta/htm/?embed;lang=fr;q=Bonjour"></iframe>
+```
+
+## WordPress
+
+A [shortcode plugin for WordPress][wp] to speak and spell:
+
+```
+[speak] Hello [/speak]   ..   [spell] Spell me! [/spell]
 ```
 
 ## License
@@ -91,7 +109,10 @@ License: [MIT][].
 [blog post]: http://nick.freear.org.uk/2017/06/13/simple-speak.html
   "'Simple-speak, voiceFamily', 13 June 2017"
 [gh]: https://github.com/nfreear/simple-speak
+[build]: https://github.com/nfreear/simple-speak/blob/master/build/simple-speak.js
 [rel]: https://github.com/nfreear/simple-speak/releases "A tagged release/ version"
+[wish]: https://github.com/nfreear/simple-speak/issues/2#!-wishlist "Wishlist for simple-speak"
+[wish-icon]: https://img.shields.io/badge/contribute-wishlist-orange.svg
 [cfg]: https://github.com/nfreear/simple-speak/blob/master/src/configure.js#L14-L46
   "Configuration options & defaults."
 [@nfreear]: https://twitter.com/nfreear "Twitter: @nfreear"
@@ -101,6 +122,8 @@ License: [MIT][].
   "Web Speech API Specification (W3C). Editor's Draft: 6 June 2014."
 [gist]: https://gist.github.com/nfreear/3e6255fe4283353e8aa2f62094ae91c9 "Gist: simple-speak.proto.js"
 [gist-v]: https://gist.github.com/nfreear/4de02b347d61cb3650b89e11162d7d6a "Gist: get-voices.js.html"
+[wp]: https://gist.github.com/nfreear/6e53e8458ea5a582288f734c5277eb5d#!-WordPress
+  "WordPress shortcode plugin ~ Gist"
 [Browserify]: https://github.com/substack/browserify-handbook#introduction
 [RawGit]: https://rawgit.com/
   "RawGit serves Git files with the correct mime-type; a content delivery network (CDN)"
@@ -116,6 +139,11 @@ License: [MIT][].
 [npm-icon]: https://img.shields.io/npm/v/simple-speak.svg "Latest version ~ on NPM"
 [license-icon]: https://img.shields.io/npm/l/simple-speak.svg
 [downl-icon]: https://img.shields.io/npm/dt/simple-speak.svg "Count of total downloads ~NPM"
+[gh-down-ic]: https://img.shields.io/github/downloads/nfreear/simple-speak/total.svg?maxAge=2592000 "0 tot"
+[size-icon]: https://img.shields.io/github/size/nfreear/simple-speak/build/simple-speak.js.svg
+  "Size of built Javascript, kilo-Bytes ~ on GitHub"
+[built-icon]: https://img.shields.io/badge/built_with-browserify-blue.svg
+  "Built with Browserify"
 [zh-cn]: https://translate.google.com/?source=osdd#auto/zh-CN/Hello%20auntie
   "'Hello auntie' in Simplified Chinese, Google Translate."
 

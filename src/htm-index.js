@@ -23,12 +23,16 @@ window.jQuery(function ($) {
   var useCdn = query.match(/cdn=1/);
   var mqLang = query.match(/lang=([\w-]+)&?/);
   var mqText = query.match(/q=([^&]+)&?/);
+  var mqRate = query.match(/rate=([\d\.]+)/);
+  var mqMode = query.match(/mode=([\w-]+)/);
   var text = mqText ? mqText[ 1 ] : 'Hello. I\'m simple-speak';
   var lang = mqLang ? mqLang[ 1 ] : 'en';
   var config = {
     lang: lang,
     style: false,
-    embed: isEmbed
+    embed: isEmbed,
+    rate: mqRate ? mqRate[ 1 ] : 1,
+    mode: mqMode ? mqMode[ 1 ] : null
   };
   var $elem = $('#id-simple-speak');
   var $body = $('body');
