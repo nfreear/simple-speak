@@ -21,12 +21,16 @@ input {
 }
 
 .is-embed { /* body */
-  margin: 4px;
+  margin: 4px 4px 0 4px;
 }
 
 .is-embed .simple-speak-frm .em,
 .is-embed .h1 {
   display: none;
+}
+
+.is-embed .simple-speak-frm {
+  margin: 1em 0 0;
 }
 
 

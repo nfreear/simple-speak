@@ -2,6 +2,8 @@
 [![Build status — Travis-CI][travis-icon]][travis]
 [![simple-speak on Npmjs][npm-icon]][npm]
 [![js-semistandard-style][semi-icon]][semi]
+[![License][license-icon]][mit]
+[![Total downloads ~ NPMJS.com][downl-icon]][npm]
 
 
 # nfreear / simple-speak
@@ -15,7 +17,7 @@ Web [browser compatibility][caniuse]:
 * Compatible ~ recent Chrome, Firefox, Safari and Microsoft Edge,
 * Not compatible ~ MS Internet Explorer.
 
-An [original Gist][gist].
+Read the [blog post][]. An [original Gist][gist].
 
 ## Install and test
 
@@ -76,7 +78,7 @@ You can embed `simple-speak` in an `<iframe>`, and optionally set a language:
 <iframe
   aria-label="Speech synthesis"
   class="simple-speak-ifr" width="100%" height="75"
-  src="https://cdn.rawgit.com/nfreear/simple-speak/1.2-beta/htm/?embed;lang=fr;q=Bonjoour"></iframe>
+  src="https://cdn.rawgit.com/nfreear/simple-speak/1.2-beta/htm/?embed;lang=fr;q=Bonjour"></iframe>
 ```
 
 ## License
@@ -86,6 +88,8 @@ License: [MIT][].
 © 2017 [Nick Freear][blog] and contributors. [@nfreear][].
 
 
+[blog post]: http://nick.freear.org.uk/2017/06/13/simple-speak.html
+  "'Simple-speak, voiceFamily', 13 June 2017"
 [gh]: https://github.com/nfreear/simple-speak
 [rel]: https://github.com/nfreear/simple-speak/releases "A tagged release/ version"
 [cfg]: https://github.com/nfreear/simple-speak/blob/master/src/configure.js#L14-L46
@@ -106,10 +110,12 @@ License: [MIT][].
 [travis-icon]: https://api.travis-ci.org/nfreear/simple-speak.svg
   "Build status – Travis-CI (NPM/eslint)"
 [semi]: https://github.com/Flet/semistandard
-[semi-icon]: https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square
+[semi-icon]: https://img.shields.io/badge/code_style-semistandard-brightgreen.svg?style_x=flat-square
   "Javascript coding style — 'semistandard'"
 [npm]: https://npmjs.com/package/simple-speak
-[npm-icon]: https://img.shields.io/npm/v/simple-speak.svg
+[npm-icon]: https://img.shields.io/npm/v/simple-speak.svg "Latest version ~ on NPM"
+[license-icon]: https://img.shields.io/npm/l/simple-speak.svg
+[downl-icon]: https://img.shields.io/npm/dt/simple-speak.svg "Count of total downloads ~NPM"
 [zh-cn]: https://translate.google.com/?source=osdd#auto/zh-CN/Hello%20auntie
   "'Hello auntie' in Simplified Chinese, Google Translate."
 
