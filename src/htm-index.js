@@ -17,16 +17,18 @@ window.jQuery(function ($) {
   window.ga('create', 'UA-8330079-8', 'auto');
   window.ga('send', 'pageview');
 
-  var script = 'https://cdn.rawgit.com/nfreear/simple-speak/1.1-beta/build/simple-speak.js';
-  var query = window.location.search;
-  var isEmbed = /[#?&;]embed[=&;]/.test(query);
+  var script = 'https://cdn.rawgit.com/nfreear/simple-speak/1.2-beta/build/simple-speak.js';
+  var query = window.location.href;
+  var isEmbed = /[\/#?&;]embed[\/=&;]/.test(query);
   var useCdn = query.match(/cdn=1/);
   var mqLang = query.match(/lang=([\w-]+)&?/);
   var mqText = query.match(/q=([^&]+)&?/);
+  var mqVox = query.match(/vo(x|ice)=([^&]+)/);
   var mqRate = query.match(/rate=([\d\.]+)/);
   var mqMode = query.match(/mode=([\w-]+)/);
   var text = mqText ? mqText[ 1 ] : 'Hello. I\'m simple-speak';
   var lang = mqLang ? mqLang[ 1 ] : 'en';
+  var vox = mqVox ? decodeURIComponent(mqVox[ 2 ]) : null;
   var config = {
     lang: lang,
     style: false,
@@ -37,7 +39,9 @@ window.jQuery(function ($) {
   var $elem = $('#id-simple-speak');
   var $body = $('body');
 
-  config.voiceFamily = lang === 'en' ? 'Google UK English Female' : null;
+  $body.addClass(isEmbed ? 'is-embed' : 'no-embed');
+
+  config.voiceFamily = !vox && lang === 'en' ? 'Google UK English Female' : vox;
 
   $elem.val(decodeURIComponent(text));
   $elem.attr('data-simple-speak', JSON.stringify(config));
@@ -50,5 +54,23 @@ window.jQuery(function ($) {
     $body.after('<script src="../build/simple-speak.js"></scr' + 'ipt>');
   }
 
-  $body.addClass(isEmbed ? 'is-embed' : 'no-embed');
+  /*
+    Browser search plugin button - Firefox 2+ and IE 7+, OpenSearch.
+  */
+  var external = window.external;
+  var $searchPlugin = $('#search-plugin');
+  var $search = $('link[ rel = search ]');
+
+  if (external && 'AddSearchProvider' in external && $searchPlugin.length) {
+    var $btn = $('<a role="button">Add browser search plugin</a>')
+      .attr('href', $search.attr('href'))
+      .on('click', function () {
+        external.AddSearchProvider($search.attr('href'));
+
+        console.warn('simplespeak search plugin:', $search.attr('href'));
+        return false;
+      });
+    $searchPlugin.append($btn);
+  }
+
 });

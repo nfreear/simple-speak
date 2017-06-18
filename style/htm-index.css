@@ -20,8 +20,19 @@ input {
   text-align: center;
 }
 
+a[ role = button ] {
+  background: #eee;
+  border: 1px solid #bbb;
+  padding: 4px 12px;
+}
+
+input,
+a[ role = button ] {
+  border-radius: 4px;
+}
+
 .is-embed { /* body */
-  margin: 4px 4px 0 4px;
+  margin: 5px 5px 0 5px;
 }
 
 .is-embed .simple-speak-frm .em,

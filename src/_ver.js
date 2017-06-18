@@ -11,6 +11,7 @@ const replace = require('replace');
 const INDEX_JS = path('/../index.js');
 const README = path('/../README.md');
 const OEMBED_JSON = path('/../htm/oembed.json');
+const OPENSEARCH_XML = path('/../htm/opensearch.xml');
 const VERSION_FILE = path('/version.js');
 const VERSION_JS = 'module.exports = \'%s\'; // Auto.\n';
 const PKG = require('../package');
@@ -35,7 +36,7 @@ replace({
 });
 
 replace({
-  paths: [ README ],
+  paths: [ README, OPENSEARCH_XML ],
   regex: /cdn.rawgit.com\/nfreear\/simple-speak\/(\d\.\d(-[.\w]+)?)\//g,
   replacement: version('cdn.rawgit.com/nfreear/simple-speak/%s/'),
   count: true,
