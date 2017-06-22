@@ -1,13 +1,14 @@
+/** @namespace simple-speak:exports */
 
 /**
  * Choose a synthesiser voice, based on the "voiceFamily" property | © Nick Freear.
  *
  * @function chooseVoice
- * @memberof simple-speak
+ * @memberof simple-speak:exports
  * @param {Object} config - The configuration object
- * @param {string} [WIN] - Window object (for testing)
+ * @param {Object} [WIN]  - Window object (for testing)
  * @return {Object} The configuration object, with the "voice" property added.
- * @private
+ * @protected
  */
 
 module.exports.chooseVoice = function (ssConfig, WIN) {

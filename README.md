@@ -20,6 +20,13 @@ Web [browser compatibility][caniuse]:
 
 Read the [blog post][]. [Suggest features and uses ![.][wish-icon]][wish]. (_An [original Gist][gist]._)
 
+## Features
+
+* An arbitrary HTML element or form field can be used as speeech input,
+* Simple Javascript and `<iframe>` embeds,
+* Speak and spell modes,
+* Supports all the voices and languages your [Web browser supports][compat].
+
 ## Install and test
 
 Build with [Browserify][]:
@@ -80,6 +87,20 @@ Simplified Chinese — [`Hello auntie`][zh-cn]:
 <script src="build/simple-speak.js" data-simple-speak='{ "mode": "spell" }'></script>
 ```
 
+### Events
+
+Listen for the `speak.simpleSpeak`, and Web Speech API events, for example, `onboundary`:
+
+```js
+$('#id-simple-speak').on('speak.simpleSpeak', function (ev, utterance, config) {
+  console.warn('speak: ', ev, utter, config);
+
+  $(utterance).on('boundary', function (ev) {
+    console.warn('boundary: ', ev);
+  });
+});
+```
+
 ### Iframe
 
 You can embed `simple-speak` in an `<iframe>`, and optionally set a language:
@@ -95,7 +116,7 @@ You can embed `simple-speak` in an `<iframe>`, and optionally set a language:
 
 A [shortcode plugin for WordPress][wp] to speak and spell:
 
-```
+```css
 [speak] Hello [/speak]   ..   [spell] Spell me! [/spell]
 ```
 

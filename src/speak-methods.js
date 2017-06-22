@@ -11,7 +11,7 @@ module.exports = {
    * @param {Object} [WIN]  - Window object (for testing)
    * @return {void}
    * @fires speak.simpleSpeak
-   * @private
+   * @protected
    */
   speak: function (ssConfig, WIN) {
     'use strict';
@@ -56,7 +56,7 @@ module.exports = {
    * @memberof simple-speak:exports
    * @param {Object} [WIN] - Window object (for testing)
    * @return {void}
-   * @private
+   * @protected
    */
   cancel: function (WIN) {
     WIN = WIN || global;

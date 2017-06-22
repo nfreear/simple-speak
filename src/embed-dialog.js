@@ -1,6 +1,12 @@
-
-// 'Copy-paste embed code' dialog | © Nick Freear.
-
+/**
+ * 'Copy-paste embed code' dialog | © Nick Freear.
+ *
+ * @function embedDialog
+ * @memberof simple-speak:exports
+ * @param {Object} config - The configuration object.
+ * @return {void}
+ * @protected
+ */
 module.exports.embedDialog = function (ssConfig) {
   'use strict';
 

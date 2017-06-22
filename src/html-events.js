@@ -1,6 +1,13 @@
-
-// Manipulate the HTML page, and setup user-events | © Nick Freear.
-
+/**
+ * Manipulate the HTML page, and setup user-events | © Nick Freear.
+ *
+ * @function htmlEvents
+ * @memberof simple-speak:exports
+ * @param {Object} config - The configuration object.
+ * @param {Object} [WIN]  - Window object (for testing)
+ * @return {void}
+ * @protected
+ */
 module.exports.htmlEvents = function (ssConfig, WIN) {
   'use strict';
 
@@ -57,6 +64,14 @@ function poweredByLink (config) {
     .replace(/%u/, url).replace(/%s/, config.version));
 }
 
+/** Add a CSS stylesheet.
+ *
+ * @function addStylesheet
+ * @memberof simple-speak:private
+ * @param {Object} config - The configuration object
+ * @return {void}
+ * @private
+ */
 function addStylesheet (config) {
   var scriptUrl = config.$('script[ src *= simple-speak ]').attr('src');
   var styleUrl = scriptUrl + '/../../style/simple-speak.css';

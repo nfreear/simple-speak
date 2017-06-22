@@ -3,11 +3,11 @@
  * Extend the default configuration, with a "data-simple-speak" HTML attribute.
  *
  * @function configure
- * @memberof simple-speak
+ * @memberof simple-speak:exports
  * @param {string} version - The version string (index.js)
- * @param {string} [WIN] - Window object (for testing)
+ * @param {Object} [WIN]   - Window object (for testing)
  * @return {Object} The configuration object.
- * @private
+ * @protected
  */
 
 module.exports.configure = function (version, WIN) {
@@ -16,7 +16,7 @@ module.exports.configure = function (version, WIN) {
   /**
    * Override the default configuration with a JSON object from a "data-simple-speak" HTML attribute.
    *
-   * @namespace simple-speak
+   * @namespace simple-speak:data-simple-speak
    * @prop {object} defaults Default configuration
    * @prop {string} defaults.id ID of HTML element to be spoken
    * @prop {string} defaults... (Incomplete)

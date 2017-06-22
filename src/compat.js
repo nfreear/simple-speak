@@ -3,11 +3,11 @@
  * Check browser compatibility. Add warning to page if not compatible | © Nick Freear.
  *
  * @function compatible
- * @memberof simple-speak
+ * @memberof simple-speak:exports
  * @param {Object} config - The configuration object
  * @param {string} [WIN] - Window object (for testing)
  * @returns {boolean} A flag - is the browser compatible?
- * @private
+ * @protected
  */
 
 module.exports.compatible = function (ssConfig, WIN) {
