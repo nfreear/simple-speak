@@ -9,6 +9,8 @@
 
 # nfreear / simple-speak
 
+Quickly add text-to-speech widgets to HTML, using the Web Speech API.
+
 A powerful, straightforward Javascript wrapper around the [Web Speech API][w3c] in the browser.
 Zero-configuration speech synthesis / text-to-speech (TTS)
 _(... with plenty of configuration potential if you need it)_.
@@ -39,12 +41,21 @@ npm test
 
 ## Usage
 
-Use [Javascript hosted][rel] on a CDN — [RawGit][]:
+Use [Javascript hosted][rel] on the [unpkg][] CDN:
 
 ```html
 <div id="id-simple-speak"> Hello. I'm simple-speak. </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://unpkg.com/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/simple-speak@1.2.0-beta/build/simple-speak.js"></script>
+```
+
+Use [Javascript hosted][rel] on the [RawGit][] CDN:
+
+```html
+<div id="id-simple-speak"> Hello. I'm simple-speak. </div>
+
+<script src="https://unpkg.com/jquery@2.2.4/dist/jquery.min.js"></script>
 <script src="https://cdn.rawgit.com/nfreear/simple-speak/1.2-beta/build/simple-speak.js"></script>
 ```
 
@@ -53,7 +64,7 @@ Speak static text within an arbitrary HTML `<element>` — zero-configuration:
 ```html
 <div id="id-simple-speak"> Hello. I'm simple-speak. </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://unpkg.com/jquery@2.2.4/dist/jquery.min.js"></script>
 <script src="build/simple-speak.js"></script>
 ```
 
@@ -62,7 +73,7 @@ Speak a text form-field, configure an alternative voice ([configuration][cfg]):
 ```html
 <label>Speech input <input id="id-simple-speak" value="Hi. I'm a text input box!"></label>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://unpkg.com/jquery@2.2.4/dist/jquery.min.js"></script>
 <script src="build/simple-speak.js" data-simple-speak='{ "voiceFamily": "Vicki" }'></script>
 ```
 
@@ -73,7 +84,7 @@ Simplified Chinese — [`Hello auntie`][zh-cn]:
 ```html
 <div id="id-simple-speak"> 你好阿姨 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://unpkg.com/jquery@2.2.4/dist/jquery.min.js"></script>
 <script src="build/simple-speak.js"
         data-simple-speak='{ "lang": "zh-cn", "voiceFamily": "Google 普通话（中国大陆）" }'></script>
 ```
@@ -83,7 +94,7 @@ Simplified Chinese — [`Hello auntie`][zh-cn]:
 ```html
 <div id="id-simple-speak"> Spell me! </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://unpkg.com/jquery@2.2.4/dist/jquery.min.js"></script>
 <script src="build/simple-speak.js" data-simple-speak='{ "mode": "spell" }'></script>
 ```
 
@@ -144,10 +155,11 @@ License: [MIT][].
 [gist]: https://gist.github.com/nfreear/3e6255fe4283353e8aa2f62094ae91c9 "Gist: simple-speak.proto.js"
 [gist-v]: https://gist.github.com/nfreear/4de02b347d61cb3650b89e11162d7d6a "Gist: get-voices.js.html"
 [wp]: https://gist.github.com/nfreear/6e53e8458ea5a582288f734c5277eb5d#!-WordPress
-  "WordPress shortcode plugin ~ Gist"
+  "WordPress shortcode plugin ~ Gist (PHP)"
 [Browserify]: https://github.com/substack/browserify-handbook#introduction
 [RawGit]: https://rawgit.com/
   "RawGit serves Git files with the correct mime-type; a content delivery network (CDN)"
+[unpkg]: https://unpkg.com/ "unpkg is a fast content delivery network for everything on npm"
 [MIT]: https://nfreear.mit-license.org/2017#!-simple-speak "MIT License"
 [caniuse]: https://caniuse.com/#feat=speech-synthesis "Check browser compatibility (caniuse)"
 [travis]: https://travis-ci.org/nfreear/simple-speak
