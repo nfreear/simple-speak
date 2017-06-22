@@ -3,6 +3,16 @@
 
 module.exports = {
 
+  /** Speak an utterance.
+   *
+   * @function speak
+   * @memberof simple-speak:exports
+   * @param {Object} config - The configuration object.
+   * @param {Object} [WIN]  - Window object (for testing)
+   * @return {void}
+   * @fires speak.simpleSpeak
+   * @private
+   */
   speak: function (ssConfig, WIN) {
     'use strict';
 
@@ -16,9 +26,9 @@ module.exports = {
 
     var utterance = new WIN.SpeechSynthesisUtterance(ssConfig.text);
 
-    utterance.onerror = function (ex) {
+    /* utterance.onerror = function (ex) {
       console.error('simplespeak error: ', ex);
-    };
+    }; */
 
     utterance.lang = ssConfig.lang;
     utterance.rate = ssConfig.rate;
@@ -27,12 +37,27 @@ module.exports = {
 
     ssConfig.utterance = utterance;
 
+    /** Speak event.
+     *
+     * @event simple-speak#speak.simpleSpeak
+     * @property {Object} utterance
+     * @property {Object} config - The configuration object.
+     */
+    ssConfig.$elem.trigger('speak.simpleSpeak', [ utterance, ssConfig ]);
+
     console.warn('simplespeak submit: ', utterance, ssConfig);
 
-    // synthesis.cancel();
     synthesis.speak(utterance);
   },
 
+  /** Cancel an utterance.
+   *
+   * @function cancel
+   * @memberof simple-speak:exports
+   * @param {Object} [WIN] - Window object (for testing)
+   * @return {void}
+   * @private
+   */
   cancel: function (WIN) {
     WIN = WIN || global;
 
