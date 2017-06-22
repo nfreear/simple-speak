@@ -1,22 +1,17 @@
 {
   "name": "simple-speak",
-  "description": "A powerful, straightforward wrapper around the Web Speech API in the browser.",
+  "description": "Quickly add text-to-speech widgets to HTML, using the Web Speech API.",
   "version": "1.2.0-beta",
   "license": "MIT",
+  "browser": "build/simple-speak.js",
+  "main": "./index.js",
   "keywords": [
     "speech synthesis", "speak", "tts", "text to speech", "text-to-speech", "browser tts", "spell", "IET-OU"
   ],
-  "author": {
-    "name": "Nick Freear {@nfreear}"
-  },
-  "main": "./index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/nfreear/simple-speak"
-  },
-  "bugs": {
-    "url": "https://github.com/nfreear/simple-speak/issues"
-  },
+  "author": "Nick Freear {@nfreear}",
+  "repository": "https://github.com/nfreear/simple-speak",
+  "bugs": "https://github.com/nfreear/simple-speak/issues",
+  "homepage": "http://nick.freear.org.uk/2017/06/13/simple-speak.html?utm_source=npm",
   "dependencies": {
     "jquery": "^2.2.4"
   },
@@ -40,11 +35,18 @@
     "test": "semistandard && csslint style/ test/style/",
     "browserify": "browserify index.js --debug | exorcist build/simple-speak.js.map | src/_unc.js > build/simple-speak.js",
     "jsdoc": "jsdoc --private --verbose index.js src/ -R README.md",
-    "jsdoc-x": "jsdoc --verbose index.js src/ -R README.md -t docs/jsdoc/template/",
+    "jsdoc-xx": "jsdoc -c docs/jsdoc/conf.json",
+    "jsdoc-x": "jsdoc --verbose --private --debug index.js src/ -R README.md -t docs/jsdoc/template/",
     "doc-x": "replace '<\\/body>' '<script>console.warn(\"Hi\")</script>' out/. -r --include=\"*.html\"",
     "osx-say-hi": "say -v vicki Hello, Im simple-speak.",
     "osx-voices": "say -v '?'"
   },
+  "files": [
+    "index.js",
+    "build/",
+    "src/",
+    "style/"
+  ],
   "semistandard": {
     "ignore": "build/"
   },
