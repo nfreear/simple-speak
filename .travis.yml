@@ -3,6 +3,8 @@
 language: node_js
 node_js:
   - "4"
+  - "6"
+  - "7"
 
 git:
   depth: 8
@@ -13,7 +15,8 @@ script:
   - npm test
 
 after_script:
-  - ls -alh build/
-  - node test/configure-test.js
+  #- ls -alh build/
+  #- node test/configure-test.js
+  cat build/simple-speak.js
 
 # End.
