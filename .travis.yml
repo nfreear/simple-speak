@@ -16,6 +16,6 @@ script:
 after_script:
   - ls -alh build/
   #- node test/configure-test.js
-  cat build/simple-speak.min.js
+  - cat build/simple-speak.min.js
 
 # End.
