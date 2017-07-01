@@ -1,9 +1,10 @@
 {
   "name": "simple-speak",
   "description": "Quickly add text-to-speech widgets to HTML, using the Web Speech API.",
-  "version": "1.2.0-beta",
+  "version": "1.3.0-beta",
   "license": "MIT",
   "browser": "build/simple-speak.js",
+  "unpkg": "build/simple-speak.js",
   "main": "./index.js",
   "keywords": [
     "speech synthesis", "speak", "tts", "text to speech", "text-to-speech", "browser tts", "spell", "IET-OU"
@@ -30,10 +31,10 @@
     "node": ">= 4.0.0"
   },
   "scripts": {
-    "build": "src/_ver.js && npm run jsdoc && npm run browserify",
-    "build-min": "uglifyjs build/simple-speak.js --comments=/^[!]/ -mco build/simple-speak.min.js",
+    "build": "src/_ver.js && npm run jsdoc && npm run browserify && npm run uglify",
+    "uglify": "uglifyjs build/simple-speak.js --comments=/^[!]/ -mco build/simple-speak.min.js",
     "test": "semistandard && csslint style/ test/style/",
-    "browserify": "browserify index.js --debug | exorcist build/simple-speak.js.map | src/_unc.js > build/simple-speak.js",
+    "browserify": "browserify index.js --no-bf --debug | exorcist build/simple-speak.js.map | src/_unc.js > build/simple-speak.js",
     "jsdoc": "jsdoc --private --verbose index.js src/ -R README.md",
     "jsdoc-xx": "jsdoc -c docs/jsdoc/conf.json",
     "jsdoc-x": "jsdoc --verbose --private --debug index.js src/ -R README.md -t docs/jsdoc/template/",
@@ -50,5 +51,6 @@
   "semistandard": {
     "ignore": "build/"
   },
+  "x-build-js-size": "10.0KB",
   "//": "Copyright © Nick Freear, 28-May-2017."
 }

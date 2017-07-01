@@ -3,7 +3,7 @@
 language: node_js
 node_js:
   - "4"
-  - "6"
+  #- "6"
   - "7"
 
 git:
@@ -11,12 +11,11 @@ git:
 
 script:
   - npm run build
-  - npm run build-min
   - npm test
 
 after_script:
-  #- ls -alh build/
+  - ls -alh build/
   #- node test/configure-test.js
-  cat build/simple-speak.js
+  cat build/simple-speak.min.js
 
 # End.

@@ -1,6 +1,6 @@
 
 htm/oembed.json
-htm/opensearch*.xml
+# htm/opensearch*.xml
 *.jsdoced.js
 
 docs/
@@ -14,10 +14,15 @@ beep.js
 *BAK*
 
 # *test.js
+build/*.js
+!build/simple-speak.js
 *.html
+*.png
+!embed/index.html
 !htm/index.html
 !test/index.html
 !get-voices.html
+!style/icon-64.png
 *.log
 *.diff
 node_modules

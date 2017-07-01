@@ -29,6 +29,8 @@ Read the [blog post][]. [Suggest features and uses ![.][wish-icon]][wish]. (_An 
 * Speak and spell modes,
 * Supports all the voices and languages your [Web browser supports][compat].
 
+See the [release notes][rel].
+
 ## Install and test
 
 Build with [Browserify][]:
@@ -47,7 +49,7 @@ Use [Javascript hosted][rel] on the [unpkg][] CDN:
 <div id="id-simple-speak"> Hello. I'm simple-speak. </div>
 
 <script src="https://unpkg.com/jquery@2.2.4/dist/jquery.min.js"></script>
-<script src="https://unpkg.com/simple-speak@1.2.0-beta/build/simple-speak.js"></script>
+<script src="https://unpkg.com/simple-speak@1.3.0-beta#._.js"></script>
 ```
 
 Use [Javascript hosted][rel] on the [RawGit][] CDN:
@@ -56,7 +58,7 @@ Use [Javascript hosted][rel] on the [RawGit][] CDN:
 <div id="id-simple-speak"> Hello. I'm simple-speak. </div>
 
 <script src="https://unpkg.com/jquery@2.2.4/dist/jquery.min.js"></script>
-<script src="https://cdn.rawgit.com/nfreear/simple-speak/1.2-beta/build/simple-speak.js"></script>
+<script src="https://cdn.rawgit.com/nfreear/simple-speak/1.3.0-beta/build/simple-speak.js"></script>
 ```
 
 Speak static text within an arbitrary HTML `<element>` — zero-configuration:
@@ -120,7 +122,7 @@ You can embed `simple-speak` in an `<iframe>`, and optionally set a language:
 <iframe
   aria-label="Speech synthesis"
   class="simple-speak-ifr" width="100%" height="75"
-  src="https://cdn.rawgit.com/nfreear/simple-speak/1.2-beta/htm/?embed;lang=fr;q=Bonjour"></iframe>
+  src="https://cdn.rawgit.com/nfreear/simple-speak/1.3.0-beta/embed/?lang=fr;q=Bonjour"></iframe>
 ```
 
 ## WordPress
@@ -174,7 +176,7 @@ License: [MIT][].
 [downl-icon]: https://img.shields.io/npm/dt/simple-speak.svg "Count of total downloads ~NPM"
 [gh-down-ic]: https://img.shields.io/github/downloads/nfreear/simple-speak/total.svg?maxAge=2592000 "0 tot"
 [size-icon]: https://img.shields.io/github/size/nfreear/simple-speak/build/simple-speak.js.svg
-  "Size of built Javascript, kilo-Bytes ~ on GitHub"
+  "Size of built Javascript, kilo-bytes (kB) ~ on GitHub"
 [built-icon]: https://img.shields.io/badge/built_with-browserify-blue.svg
   "Built with Browserify"
 [zh-cn]: https://translate.google.com/?source=osdd#auto/zh-CN/Hello%20auntie

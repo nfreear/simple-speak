@@ -4,8 +4,8 @@
   <Description>Speech synthesis via simple-speak ~ https://github.com/nfreear/simple-speak</Description>
   <Contact>nfreear+@+yahoo.co.uk</Contact>
   <Url type="text/html"
-       template="https://cdn.rawgit.com/nfreear/simple-speak/1.3-beta/htm/?q={searchTerms};lang={language?}&amp;utm_source=opensearch"/>
-  <Image height="64" width="64" type="image/png">https://cdn.rawgit.com/nfreear/simple-speak/1.3-beta/style/icon-64.png</Image>
+       template="https://cdn.rawgit.com/nfreear/simple-speak/1.3.0-beta/htm/?q={searchTerms};lang={language?}&amp;utm_source=opensearch"/>
+  <Image height="64" width="64" type="image/png">https://cdn.rawgit.com/nfreear/simple-speak/1.3.0-beta/style/icon-64.png</Image>
   <Query role="example" searchTerms="Hello. I'm simple-speak." />
   <Attribution>© Nick Freear, 07-June-2017 | License: MIT.</Attribution>
   <SyndicationRight>open</SyndicationRight>

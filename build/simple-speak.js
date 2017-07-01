@@ -10,7 +10,7 @@
 (function () {
   'use strict';
 
-  var VERSION_TAG = '1.2-beta'; // <Auto>
+  var VERSION_TAG = '1.3.0-beta'; // <Auto>
 
   var config = require('./src/configure').configure(VERSION_TAG);
 
@@ -30,6 +30,7 @@
 
 },{"./src/choose-voice":2,"./src/compat":3,"./src/configure":4,"./src/embed-dialog":5,"./src/html-events":6,"./src/speak-methods":7}],2:[function(require,module,exports){
 (function (global){
+
 
 
 
@@ -178,7 +179,7 @@ function processText (ssConfig) {
   // https://stackoverflow.com/questions/30279778/javascript-regex-spaces-between-characters
   if (/^spell/i.test(ssConfig.mode)) {  // Was: ssConfig.mode === 'spell'
     ssConfig.text_orig = ssConfig.text;
-    ssConfig.text = ssConfig.text.replace(/(.)(?=.)/g, '$1 ');  // NO? .replace(/  /g, ' ');
+    ssConfig.text = ssConfig.text.replace(/\s/g, '. ').replace(/(.)(?=\w)/g, '$1 ');
   }
   return ssConfig;
 }
@@ -186,8 +187,6 @@ function processText (ssConfig) {
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
 },{}],5:[function(require,module,exports){
-
-// 'Copy-paste embed code' dialog | © Nick Freear.
 
 module.exports.embedDialog = function (ssConfig) {
   'use strict';
@@ -220,8 +219,6 @@ module.exports.embedDialog = function (ssConfig) {
 
 },{}],6:[function(require,module,exports){
 (function (global){
-
-// Manipulate the HTML page, and setup user-events | © Nick Freear.
 
 module.exports.htmlEvents = function (ssConfig, WIN) {
   'use strict';
@@ -279,13 +276,24 @@ function poweredByLink (config) {
     .replace(/%u/, url).replace(/%s/, config.version));
 }
 
+
 function addStylesheet (config) {
-  var scriptUrl = config.$('script[ src *= simple-speak ]').attr('src');
-  var styleUrl = scriptUrl + '/../../style/simple-speak.css';
+  config.script_url = config.$('script[ src *= simple-speak ]').attr('src');
 
   if (config.style) {
-    config.$('head').prepend('<link rel="stylesheet" href="%s">'.replace(/%s/, styleUrl));
+    config.style_url = '/../../style/simple-speak.css';
+    config.$('head').prepend('<link rel="stylesheet" href="%s">'.replace(/%s/, decideStyleUrl(config)));
   }
+}
+
+function decideStyleUrl (CFG) {
+  // Support for 'unpkg' CDN short URL.
+  if (/@\d\.\d\.\d(-[\w.]+)(#|_.js|$)/.test(CFG.script_url)) {
+    console.warn('ss: npm @version found');
+    CFG.style_url = CFG.style_url.replace('/../..', '');
+    CFG.script_url = CFG.script_url.replace(/(#.*|_\.js)/, '');
+  }
+  return CFG.script_url + CFG.style_url;
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
@@ -297,6 +305,7 @@ function addStylesheet (config) {
 
 module.exports = {
 
+  
   speak: function (ssConfig, WIN) {
     'use strict';
 
@@ -310,9 +319,7 @@ module.exports = {
 
     var utterance = new WIN.SpeechSynthesisUtterance(ssConfig.text);
 
-    utterance.onerror = function (ex) {
-      console.error('simplespeak error: ', ex);
-    };
+    
 
     utterance.lang = ssConfig.lang;
     utterance.rate = ssConfig.rate;
@@ -321,12 +328,15 @@ module.exports = {
 
     ssConfig.utterance = utterance;
 
+    
+    ssConfig.$elem.trigger('speak.simpleSpeak', [ utterance, ssConfig ]);
+
     console.warn('simplespeak submit: ', utterance, ssConfig);
 
-    // synthesis.cancel();
     synthesis.speak(utterance);
   },
 
+  
   cancel: function (WIN) {
     WIN = WIN || global;
 
