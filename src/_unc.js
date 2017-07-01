@@ -1,6 +1,17 @@
 #!/usr/bin/env node
 
-/*!
+/** @namespace simple-speak:bin */
+
+/**
+ * CLI. Strip most comments from Javascript, piped via stdin.
+ *
+ * @function  src/_unc
+ * @memberof  simple-speak:bin
+ * @copyright © Nick Freear, 13-June-2017.
+ * @license   MIT
+ */
+
+/*
   CLI. Strip most comments from Javascript, piped via stdin.
 
   © Nick Freear, 13-June-2017 | License: MIT.

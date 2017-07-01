@@ -1,5 +1,15 @@
 #!/usr/bin/env node
 
+/**
+ * CLI. Implant `package.version` in index.js, README.md etc.
+ *
+ * @function  src/_ver
+ * @memberof  simple-speak:bin
+ * @copyright © Nick Freear, 04-June-2017.
+ * @license   MIT
+ * @see       https://github.com/nfreear/simple-speak
+ */
+
 /*!
   CLI. Implant `package.version` in index.js, README.md etc.
 
@@ -15,7 +25,7 @@ const OPENSEARCH_XML = path('/../htm/opensearch.xml');
 const VERSION_FILE = path('/version.js');
 const VERSION_JS = 'module.exports = \'%s\'; // Auto.\n';
 const PKG = require('../package');
-const VERSION_TAG = PKG.version.replace(/\.0(-.+)?/, '$1');
+const VERSION_TAG = PKG.version; // .replace(/\.0(-.+)?/, '$1');
 
 console.warn('VERSION_TAG :', VERSION_TAG);
 
@@ -29,7 +39,7 @@ replace({
 
 replace({
   paths: [ INDEX_JS ],
-  regex: /@version \d\.\d(-[.\w]+)?/,
+  regex: /@version \d\.\d(\.\d)?(-[.\w]+)?/,
   replacement: version('@version %s'),
   count: true,
   recursive: false
@@ -37,8 +47,16 @@ replace({
 
 replace({
   paths: [ README, OPENSEARCH_XML ],
-  regex: /cdn.rawgit.com\/nfreear\/simple-speak\/(\d\.\d(-[.\w]+)?)\//g,
+  regex: /cdn.rawgit.com\/nfreear\/simple-speak\/(\d\.\d(\.\d)?(-[.\w]+)?)\//g,
   replacement: version('cdn.rawgit.com/nfreear/simple-speak/%s/'),
+  count: true,
+  recursive: false
+});
+
+replace({
+  paths: [ README ],
+  regex: /unpkg.com\/simple-speak@(\d\.\d\.\d(-[.\w]+)?)/g,
+  replacement: version('unpkg.com/simple-speak@%s'),
   count: true,
   recursive: false
 });
@@ -46,14 +64,14 @@ replace({
 if (argvCheck('--all')) {
   replace({
     paths: [ OEMBED_JSON ],
-    regex: /cdn.rawgit.com\\\/nfreear\\\/simple-speak\\\/(\d\.\d(-[.\w]+)?)\\\//g,
+    regex: /cdn.rawgit.com\\\/nfreear\\\/simple-speak\\\/(\d\.\d(\.\d)?(-[.\w]+)?)\\\//g,
     replacement: version('cdn.rawgit.com\\/nfreear\\/simple-speak\\/%s\\/'),
     count: true,
     recursive: false
   });
-}
 
-require('fs').writeFileSync(VERSION_FILE, version(VERSION_JS));
+  require('fs').writeFileSync(VERSION_FILE, version(VERSION_JS));
+}
 
 function argvCheck (flag) {
   return process.argv[ process.argv.length - 1 ] === flag;

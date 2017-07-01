@@ -73,10 +73,20 @@ function poweredByLink (config) {
  * @private
  */
 function addStylesheet (config) {
-  var scriptUrl = config.$('script[ src *= simple-speak ]').attr('src');
-  var styleUrl = scriptUrl + '/../../style/simple-speak.css';
+  config.script_url = config.$('script[ src *= simple-speak ]').attr('src');
 
   if (config.style) {
-    config.$('head').prepend('<link rel="stylesheet" href="%s">'.replace(/%s/, styleUrl));
+    config.style_url = '/../../style/simple-speak.css';
+    config.$('head').prepend('<link rel="stylesheet" href="%s">'.replace(/%s/, decideStyleUrl(config)));
   }
+}
+
+function decideStyleUrl (CFG) {
+  // Support for 'unpkg' CDN short URL.
+  if (/@\d\.\d\.\d(-[\w.]+)(#|_.js|$)/.test(CFG.script_url)) {
+    console.warn('ss: npm @version found');
+    CFG.style_url = CFG.style_url.replace('/../..', '');
+    CFG.script_url = CFG.script_url.replace(/(#.*|_\.js)/, '');
+  }
+  return CFG.script_url + CFG.style_url;
 }
