@@ -3,12 +3,9 @@
   "description": "Quickly add text-to-speech widgets to HTML, using the Web Speech API.",
   "version": "1.3.0-beta",
   "license": "MIT",
-  "browser": "build/simple-speak.js",
-  "unpkg": "build/simple-speak.js",
+  "browser": "dist/simple-speak.js",
+  "unpkg": "dist/simple-speak.js",
   "main": "./index.js",
-  "keywords": [
-    "speech synthesis", "speak", "tts", "text to speech", "text-to-speech", "browser tts", "spell", "IET-OU"
-  ],
   "author": "Nick Freear {@nfreear}",
   "repository": "https://github.com/nfreear/simple-speak",
   "bugs": "https://github.com/nfreear/simple-speak/issues",
@@ -21,36 +18,51 @@
     "csslint": "^1.0.5",
     "exorcist": "^0.4.0",
     "jsdoc": "^3.4.3",
-    "jsdom": "^9.12.0",
+    "live-server": "^1.2.0",
     "replace": "^0.3.0",
     "semistandard": "^11.0.0",
-    "uglify-js": "^3.0.14",
-    "xo": "^0.18.2"
+    "uglify-js": "^3.0.14"
   },
   "engines": {
     "node": ">= 4.0.0"
   },
   "scripts": {
-    "build": "src/_ver.js && npm run jsdoc && npm run browserify && npm run uglify",
-    "uglify": "uglifyjs build/simple-speak.js --comments=/^[!]/ -mco build/simple-speak.min.js",
+    "build": "rm dist/* && src/_ver.js && npm run jsdoc && npm run browserify && npm run uglify",
+    "uglify": "uglifyjs dist/simple-speak.js --comments=/^[!]/ -mco dist/simple-speak.min.js",
     "test": "semistandard && csslint style/ test/style/",
-    "browserify": "browserify index.js --no-bf --debug | exorcist build/simple-speak.js.map | src/_unc.js > build/simple-speak.js",
+    "browserify": "browserify index.js --no-bf --debug | exorcist dist/simple-speak.js.map | src/_unc.js > dist/simple-speak.js",
+    "start": "live-server -V # static-server -d=test/ -p=9001 # html-pages --no-cache --port 9000 # node bin/server.js",
     "jsdoc": "jsdoc --private --verbose index.js src/ -R README.md",
     "jsdoc-xx": "jsdoc -c docs/jsdoc/conf.json",
-    "jsdoc-x": "jsdoc --verbose --private --debug index.js src/ -R README.md -t docs/jsdoc/template/",
-    "doc-x": "replace '<\\/body>' '<script>console.warn(\"Hi\")</script>' out/. -r --include=\"*.html\"",
     "osx-say-hi": "say -v vicki Hello, Im simple-speak.",
     "osx-voices": "say -v '?'"
   },
+  "keywords": [
+    "speech synthesis",
+    "speak",
+    "tts",
+    "text to speech",
+    "text-to-speech",
+    "browser tts",
+    "spell",
+    "IET-OU"
+  ],
   "files": [
     "index.js",
-    "build/",
+    "dist/",
     "src/",
     "style/"
   ],
   "semistandard": {
-    "ignore": "build/"
+    "ignore": "dist/"
   },
   "x-build-js-size": "10.0KB",
-  "//": "Copyright © Nick Freear, 28-May-2017."
+  "//": {
+    "html-pages": "^1.7.3",
+    "jsdom": "^9.12.0",
+    "node-static": "^0.7.9",
+    "server-static (zh-CN)": "^2.0.5",
+
+    "(c)": "Copyright © Nick Freear, 28-May-2017."
+  }
 }

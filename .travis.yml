@@ -14,8 +14,8 @@ script:
   - npm test
 
 after_script:
-  - ls -alh build/
+  - ls -alh dist/
   #- node test/configure-test.js
-  - cat build/simple-speak.min.js
+  - cat dist/simple-speak.min.js
 
 # End.

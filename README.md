@@ -67,7 +67,7 @@ Speak static text within an arbitrary HTML `<element>` — zero-configuration:
 <div id="id-simple-speak"> Hello. I'm simple-speak. </div>
 
 <script src="https://unpkg.com/jquery@2.2.4/dist/jquery.min.js"></script>
-<script src="build/simple-speak.js"></script>
+<script src="dist/simple-speak.js"></script>
 ```
 
 Speak a text form-field, configure an alternative voice ([configuration][cfg]):
@@ -76,7 +76,7 @@ Speak a text form-field, configure an alternative voice ([configuration][cfg]):
 <label>Speech input <input id="id-simple-speak" value="Hi. I'm a text input box!"></label>
 
 <script src="https://unpkg.com/jquery@2.2.4/dist/jquery.min.js"></script>
-<script src="build/simple-speak.js" data-simple-speak='{ "voiceFamily": "Vicki" }'></script>
+<script src="dist/simple-speak.js" data-simple-speak='{ "voiceFamily": "Vicki" }'></script>
 ```
 
 ### Localized
@@ -87,7 +87,7 @@ Simplified Chinese — [`Hello auntie`][zh-cn]:
 <div id="id-simple-speak"> 你好阿姨 </div>
 
 <script src="https://unpkg.com/jquery@2.2.4/dist/jquery.min.js"></script>
-<script src="build/simple-speak.js"
+<script src="dist/simple-speak.js"
         data-simple-speak='{ "lang": "zh-cn", "voiceFamily": "Google 普通话（中国大陆）" }'></script>
 ```
 
@@ -97,7 +97,7 @@ Simplified Chinese — [`Hello auntie`][zh-cn]:
 <div id="id-simple-speak"> Spell me! </div>
 
 <script src="https://unpkg.com/jquery@2.2.4/dist/jquery.min.js"></script>
-<script src="build/simple-speak.js" data-simple-speak='{ "mode": "spell" }'></script>
+<script src="dist/simple-speak.js" data-simple-speak='{ "mode": "spell" }'></script>
 ```
 
 ### Events
@@ -175,7 +175,7 @@ License: [MIT][].
 [license-icon]: https://img.shields.io/npm/l/simple-speak.svg
 [downl-icon]: https://img.shields.io/npm/dt/simple-speak.svg "Count of total downloads ~NPM"
 [gh-down-ic]: https://img.shields.io/github/downloads/nfreear/simple-speak/total.svg?maxAge=2592000 "0 tot"
-[size-icon]: https://img.shields.io/github/size/nfreear/simple-speak/build/simple-speak.js.svg
+[size-icon]: https://img.shields.io/github/size/nfreear/simple-speak/dist/simple-speak.js.svg
   "Size of built Javascript, kilo-bytes (kB) ~ on GitHub"
 [built-icon]: https://img.shields.io/badge/built_with-browserify-blue.svg
   "Built with Browserify"
