@@ -1,4 +1,7 @@
 
+bin/
+package-lock.json
+
 htm/oembed.json
 # htm/opensearch*.xml
 *.jsdoced.js
@@ -6,7 +9,7 @@ htm/oembed.json
 docs/
 out/
 src/version.js
-build/*.js.map
+dist/*.js.map
 
 *.min.js
 beep.js
@@ -14,8 +17,8 @@ beep.js
 *BAK*
 
 # *test.js
-build/*.js
-!build/simple-speak.js
+dist/*.js
+!dist/simple-speak.js
 *.html
 *.png
 !embed/index.html

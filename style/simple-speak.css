@@ -67,9 +67,9 @@
   border: 1px solid #bbb;
   border-radius: 4px;
   font-size: .85em;
-  line-height: 1.9em;
+  line-height: 1.6em;
   margin-top: 4px;
-  padding: 4px;
+  padding: 3px;
   position: absolute;
 }
 
@@ -77,8 +77,8 @@
   border: 1px solid #bbb;
   border-radius: 4px;
   display: block;
-  font-size: .96em;
-  height: 5em;
+  font-size: .95em;
+  height: 4.8em;
   padding: 2px;
-  width: 52em;
+  width: 39em;
 }

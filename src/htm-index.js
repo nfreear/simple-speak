@@ -17,7 +17,7 @@ window.jQuery(function ($) {
   window.ga('create', 'UA-8330079-8', 'auto');
   window.ga('send', 'pageview');
 
-  var script = 'https://cdn.rawgit.com/nfreear/simple-speak/1.2-beta/build/simple-speak.js';
+  var script = 'https://unpkg.co/simple-speak@1.3.0-beta#._.js';
   var query = window.location.href;
   var isEmbed = /[\/#?&;]embed[\/=&;]/.test(query);
   var useCdn = query.match(/cdn=1/);
@@ -51,7 +51,7 @@ window.jQuery(function ($) {
 
     $body.after(('<script src="%s"></scr' + 'ipt>').replace(/%s/, script));
   } else {
-    $body.after('<script src="../build/simple-speak.js"></scr' + 'ipt>');
+    $body.after('<script src="../dist/simple-speak.js"></scr' + 'ipt>');
   }
 
   /*
