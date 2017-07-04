@@ -1,0 +1,37 @@
+{
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": [ "jsdoc", "closure" ]
+  },
+  "templates": {
+    "monospaceLinks": false,
+    "cleverLinks": false,
+    "default": { "outputSourceFiles": true }
+  },
+  "source": {
+    "include": [ "index.js", "src/" ],
+    "includePattern": ".+\\.js(doc|x)?$",
+    "X-excludePattern": "(^|\\/|\\\\)_"
+  },
+  "plugins": [],
+
+  "opts": {
+    "template": "templates/default",
+    "encoding": "utf8",
+    "destination": "./out/",
+    "recurse": false,
+    "X-tutorials": "path/to/tutorials",
+    "X-package": "package.json",
+    "readme": "README.md",
+    "private": true,
+    "X-debug": true,
+    "verbose": true
+  },
+
+  "//": [
+    "JSDoc configuration.",
+    "https://medium.com/@kevinast/integrate-gitbook-jsdoc-974be8df6fb3",
+    "https://macwright.org/2015/05/15/defense-of-jsdoc.html",
+    "http://speakingjs.com/es5/ch29.html"
+  ]
+}

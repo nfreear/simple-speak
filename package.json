@@ -31,9 +31,8 @@
     "uglify": "uglifyjs dist/simple-speak.js --comments=/^[!]/ -mco dist/simple-speak.min.js",
     "test": "semistandard && csslint style/ test/style/",
     "browserify": "browserify index.js --no-bf --debug | exorcist dist/simple-speak.js.map | src/_unc.js > dist/simple-speak.js",
-    "start": "live-server -V # static-server -d=test/ -p=9001 # html-pages --no-cache --port 9000 # node bin/server.js",
-    "jsdoc": "jsdoc --private --verbose index.js src/ -R README.md",
-    "jsdoc-xx": "jsdoc -c docs/jsdoc/conf.json",
+    "start": "live-server -V",
+    "jsdoc": "jsdoc -c src/jsdoc/conf.json",
     "osx-say-hi": "say -v vicki Hello, Im simple-speak.",
     "osx-voices": "say -v '?'"
   },
@@ -54,7 +53,7 @@
     "style/"
   ],
   "semistandard": {
-    "ignore": "dist/"
+    "ignore": [ "dist/", "src/jsdoc/" ]
   },
   "x-build-js-size": "10.0KB",
   "//": {
