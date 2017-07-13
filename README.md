@@ -6,6 +6,7 @@
 [![Total downloads ~ NPMJS.com][downl-icon]][npm]
 [![Size of Javascript][size-icon]][build]
 [![Browserify][built-icon]][gh]
+[![embed me][embed-icon]][embed]
 
 # nfreear / simple-speak
 
@@ -181,6 +182,8 @@ License: [MIT][].
   "Built with Browserify"
 [zh-cn]: https://translate.google.com/?source=osdd#auto/zh-CN/Hello%20auntie
   "'Hello auntie' in Simplified Chinese, Google Translate."
+[embed]: https://cdn.rawgit.com/nfreear/simple-speak/1.3.0-beta/embed/?lang=en;q=Hello%20world!
+[embed-icon]: https://img.shields.io/badge/embed-me_%E2%99%A5-ff69b4.svg "Please embed me ;) ♥"
 
 [compat]: https://docs.google.com/spreadsheets/d/1i3Czp0nGnI-a5gSJbLv3RLLoK0JWZBvr0L4XVna8OZU/#gid=0
   "Browser compatibility tests; count of available voices (Google Docs)"
