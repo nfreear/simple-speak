@@ -10,8 +10,8 @@
 module.exports.embedDialog = function (ssConfig) {
   'use strict';
 
-  var scriptUrl = 'https://unpkg.co/simple-speak@%s#._.js'.replace(/%s/, ssConfig.version);
-  var jqueryUrl = 'https://unpkg.co/jquery@2.2.4/dist/jquery.min.js'; // ssConfig.$('script[ src *= jquery ]').attr('src');
+  var scriptUrl = 'https://unpkg.com/simple-speak@%s#._.js'.replace(/%s/, ssConfig.version);
+  var jqueryUrl = 'https://unpkg.com/jquery@2.2.4/dist/jquery.min.js'; // ssConfig.$('script[ src *= jquery ]').attr('src');
   var embedCode = '&lt;div id="id-simple-speak">Hello&lt;/div>\n\n&lt;script src="%jq">&lt;/script>\n&lt;script src="%s">&lt;/script>';
   var embedDialog = '<div role="alertdialog"><label>Copy & paste the embed code <textarea readonly >%e</textarea></label></div>';
   var $form = ssConfig.$form;

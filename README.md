@@ -49,8 +49,8 @@ Use [Javascript hosted][rel] on the [unpkg][] CDN:
 ```html
 <div id="id-simple-speak"> Hello. I'm simple-speak. </div>
 
-<script src="https://unpkg.co/jquery@2.2.4/dist/jquery.min.js"></script>
-<script src="https://unpkg.co/simple-speak@1.3.0-beta#._.js"></script>
+<script src="https://unpkg.com/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/simple-speak@1.3.0-beta#._.js"></script>
 ```
 
 Use [Javascript hosted][rel] on the [RawGit][] CDN:
@@ -58,7 +58,7 @@ Use [Javascript hosted][rel] on the [RawGit][] CDN:
 ```html
 <div id="id-simple-speak"> Hello. I'm simple-speak. </div>
 
-<script src="https://unpkg.co/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/jquery@2.2.4/dist/jquery.min.js"></script>
 <script src="https://cdn.rawgit.com/nfreear/simple-speak/1.3.0-beta/build/simple-speak.js"></script>
 ```
 
@@ -67,7 +67,7 @@ Speak static text within an arbitrary HTML `<element>` — zero-configuration:
 ```html
 <div id="id-simple-speak"> Hello. I'm simple-speak. </div>
 
-<script src="https://unpkg.co/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/jquery@2.2.4/dist/jquery.min.js"></script>
 <script src="dist/simple-speak.js"></script>
 ```
 
@@ -76,7 +76,7 @@ Speak a text form-field, configure an alternative voice ([configuration][cfg]):
 ```html
 <label>Speech input <input id="id-simple-speak" value="Hi. I'm a text input box!"></label>
 
-<script src="https://unpkg.co/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/jquery@2.2.4/dist/jquery.min.js"></script>
 <script src="dist/simple-speak.js" data-simple-speak='{ "voiceFamily": "Vicki" }'></script>
 ```
 
@@ -87,7 +87,7 @@ Simplified Chinese — [`Hello auntie`][zh-cn]:
 ```html
 <div id="id-simple-speak"> 你好阿姨 </div>
 
-<script src="https://unpkg.co/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/jquery@2.2.4/dist/jquery.min.js"></script>
 <script src="dist/simple-speak.js"
         data-simple-speak='{ "lang": "zh-cn", "voiceFamily": "Google 普通话（中国大陆）" }'></script>
 ```
@@ -97,7 +97,7 @@ Simplified Chinese — [`Hello auntie`][zh-cn]:
 ```html
 <div id="id-simple-speak"> Spell me! </div>
 
-<script src="https://unpkg.co/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/jquery@2.2.4/dist/jquery.min.js"></script>
 <script src="dist/simple-speak.js" data-simple-speak='{ "mode": "spell" }'></script>
 ```
 
