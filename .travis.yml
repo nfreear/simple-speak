@@ -1,17 +1,15 @@
 # Travis-CI setup for simple-speak | © Nick Freear | License: MIT.
 
 language: node_js
-node_js:
-  - "4"
-  #- "6"
-  - "7"
+
+node_js: 7
 
 git:
   depth: 8
 
-script:
-  - npm run build
-  - npm test
+before_script: npm run build
+
+script: npm test
 
 after_script:
   - ls -alh dist/

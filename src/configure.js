@@ -31,14 +31,14 @@ module.exports.configure = function (version, WIN) {
    * @copyright © 2017 Nick Freear and contributors.
    */
   var defaults = {
-    id: 'id-simple-speak',  // ID of HTML element.
+    id: 'id-simple-speak', // ID of HTML element.
     mode: 'say-html-on-submit', // Or: 'say-input', 'say-on-focus', 'spell-on-focus' etc.
     lang: 'en-US',
     noCompatMsg: '<p class="simple-speak-no-compat-msg" role="alert">Sorry! Speech synthesis is not available in your browser.</p>',
     form: '<form id="simple-speak-frm" class="simple-speak-frm"><button class="sp" type="submit"><i>Speak</i></button><button class="cl"><i>Cancel</i></button></form>',
     // input: '<label>Speech input <input id="inp-simple-speak" value="%s"></label>',
-    style: true,  // (bool) Should simple-speak stylesheet be injected?
-    pitch: 1,     // (float) Range: 0 ~ 2.
+    style: true, // (bool) Should simple-speak stylesheet be injected?
+    pitch: 1, // (float) Range: 0 ~ 2.
     rate: 1,
     volume: 1,
     voice: null,

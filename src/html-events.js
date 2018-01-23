@@ -61,7 +61,7 @@ function poweredByLink (config) {
   var url = 'https://github.com/nfreear/simple-speak?utm_source=simplespeak';
   config.$form.append(
     '<a class="by" href="%u" title="Powered by simple-speak v%s (MIT License)" target="_top">simple-speak</a>'
-    .replace(/%u/, url).replace(/%s/, config.version));
+      .replace(/%u/, url).replace(/%s/, config.version));
 }
 
 /** Add a CSS stylesheet.

@@ -21,30 +21,30 @@
   whenDeferred(function () {
     return $widget.find('.aw-widget-content').length;
   })
-  .fail(function () {
-    console.error('Weather: fail.');
-  })
-  .then(function () {
-    var $inner = $widget.find('.aw-widget-content');
+    .fail(function () {
+      console.error('Weather: fail.');
+    })
+    .then(function () {
+      var $inner = $widget.find('.aw-widget-content');
 
-    addScriptConfig(script, config);
+      addScriptConfig(script, config);
 
-    $inner.attr('id', id + '-inner');
+      $inner.attr('id', id + '-inner');
 
-    $widget.addClass('weather-speak-js');
+      $widget.addClass('weather-speak-js');
 
-    console.warn('Weather, raw: ', $inner.text(), $widget.data('language'));
+      console.warn('Weather, raw: ', $inner.text(), $widget.data('language'));
 
-    $('a.aw-widget-legal').attr('aria-label', 'Accu-weather forecast.');
+      $('a.aw-widget-legal').attr('aria-label', 'Accu-weather forecast.');
 
-    inject('h3', 'Weather forecast.', 'before');
+      inject('h3', 'Weather forecast.', 'before');
 
-    inject('h3', '. Location:');
-    inject('.aw-temperature-today', '. Temperature:');
-    inject('.aw-temperature-today', (isCelcius ? 'celcius.' : 'fahrenheit.'), 'append');
-    inject('time', '. Time:', 'before');
-    inject('.aw-weather-description', '. Conditions:');
-  });
+      inject('h3', '. Location:');
+      inject('.aw-temperature-today', '. Temperature:');
+      inject('.aw-temperature-today', (isCelcius ? 'celcius.' : 'fahrenheit.'), 'append');
+      inject('time', '. Time:', 'before');
+      inject('.aw-weather-description', '. Conditions:');
+    });
 
   function addScriptConfig (script, config) {
     $.ajaxSetup({ cache: true }); // Remove the '?_=..' timestamp parameter.
