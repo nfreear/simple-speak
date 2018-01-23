@@ -44,7 +44,7 @@ npm test
 
 ## Usage
 
-Use [Javascript hosted][rel] on the [unpkg][] CDN:
+Use [Javascript hosted][rel] on the [unpkg][] CDN ([browse][unpkg-list]):
 
 ```html
 <div id="id-simple-speak"> Hello. I'm simple-speak. </div>
@@ -163,6 +163,7 @@ License: [MIT][].
 [RawGit]: https://rawgit.com/
   "RawGit serves Git files with the correct mime-type; a content delivery network (CDN)"
 [unpkg]: https://unpkg.com/ "unpkg is a fast content delivery network for everything on npm"
+[unpkg-list]: https://unpkg.com/simple-speak@^1/ "Browse simple-speak"
 [MIT]: https://nfreear.mit-license.org/2017#!-simple-speak "MIT License"
 [caniuse]: https://caniuse.com/#feat=speech-synthesis "Check browser compatibility (caniuse)"
 [travis]: https://travis-ci.org/nfreear/simple-speak

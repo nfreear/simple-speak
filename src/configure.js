@@ -79,7 +79,7 @@ function processText (ssConfig) {
   if (!ssConfig.text) return ssConfig;
 
   // https://stackoverflow.com/questions/30279778/javascript-regex-spaces-between-characters
-  if (/^spell/i.test(ssConfig.mode)) {  // Was: ssConfig.mode === 'spell'
+  if (/^spell/i.test(ssConfig.mode)) { // Was: ssConfig.mode === 'spell'
     ssConfig.text_orig = ssConfig.text;
     ssConfig.text = ssConfig.text.replace(/\s/g, '. ').replace(/(.)(?=\w)/g, '$1 ');
   }
