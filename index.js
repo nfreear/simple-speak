@@ -7,7 +7,7 @@
 /**
  * A powerful, straightforward Javascript wrapper around the Web Speech API in the browser.
  * @module simple-speak
- * @version 1.3.0-beta
+ * @version 1.3.2
  * @license  MIT
  * @copyright © 2017 Nick Freear and contributors.
  * @see {@link https://npmjs.com/package/simple-speak|simple-speak on NPM}
@@ -16,7 +16,7 @@
 (function () {
   'use strict';
 
-  var VERSION_TAG = '1.3.0-beta'; // <Auto>
+  var VERSION_TAG = '1.3.2'; // <Auto>
 
   var config = require('./src/configure').configure(VERSION_TAG);
 

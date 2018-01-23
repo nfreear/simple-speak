@@ -10,7 +10,7 @@
 (function () {
   'use strict';
 
-  var VERSION_TAG = '1.3.0-beta'; // <Auto>
+  var VERSION_TAG = '1.3.2'; // <Auto>
 
   var config = require('./src/configure').configure(VERSION_TAG);
 
@@ -191,11 +191,10 @@ function processText (ssConfig) {
 module.exports.embedDialog = function (ssConfig) {
   'use strict';
 
-  var scriptUrl = 'https://cdn.rawgit.com/nfreear/simple-speak/%s/build/simple-speak.js'.replace(/%s/, ssConfig.version);
-  // var scriptUrl = $('script[ src *= simple-speak ]').attr('src');
-  var jqueryUrl = ssConfig.$('script[ src *= jquery ]').attr('src');
+  var scriptUrl = 'https://unpkg.com/simple-speak@%s#._.js'.replace(/%s/, ssConfig.version);
+  var jqueryUrl = 'https://unpkg.com/jquery@3.2.1/dist/jquery.min.js'; // ssConfig.$('script[ src *= jquery ]').attr('src');
   var embedCode = '&lt;div id="id-simple-speak">Hello&lt;/div>\n\n&lt;script src="%jq">&lt;/script>\n&lt;script src="%s">&lt;/script>';
-  var embedDialog = '<div role="alertdialog"><label>Copy & paste the embed code <textarea>%e</textarea></label></div>';
+  var embedDialog = '<div role="alertdialog"><label>Copy & paste the embed code <textarea readonly >%e</textarea></label></div>';
   var $form = ssConfig.$form;
 
   $form.append('<button class="em" title="Get the embed code">&lt;/></button>');

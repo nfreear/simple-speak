@@ -20,14 +20,18 @@
 const replace = require('replace');
 const INDEX_JS = path('/../index.js');
 const README = path('/../README.md');
+const INDEX_HTML = path('/../htm/index.html');
+const EMBED_JS = path('/embed-dialog.js');
 const OEMBED_JSON = path('/../htm/oembed.json');
 const OPENSEARCH_XML = path('/../htm/opensearch.xml');
 const VERSION_FILE = path('/version.js');
 const VERSION_JS = 'module.exports = \'%s\'; // Auto.\n';
 const PKG = require('../package');
 const VERSION_TAG = PKG.version; // .replace(/\.0(-.+)?/, '$1');
+const JQUERY_VER = PKG.dependencies.jquery;
 
 console.warn('VERSION_TAG :', VERSION_TAG);
+console.warn('jQuery ver  :', JQUERY_VER);
 
 replace({
   paths: [ INDEX_JS ],
@@ -61,6 +65,14 @@ replace({
   recursive: false
 });
 
+replace({
+  paths: [ README, INDEX_HTML, EMBED_JS ],
+  regex: /unpkg.com\/jquery@(\d\.\d\.\d+)/g,
+  replacement: jqueryVersion('unpkg.com/jquery@%s'),
+  count: true,
+  recursive: false
+});
+
 if (argvCheck('--all')) {
   replace({
     paths: [ OEMBED_JSON ],
@@ -85,3 +97,9 @@ function path (file) {
 function version (str) {
   return str.replace('%s', VERSION_TAG);
 }
+
+function jqueryVersion (str) {
+  return str.replace('%s', JQUERY_VER.replace('^', ''));
+}
+
+// End.
