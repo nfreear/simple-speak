@@ -11,7 +11,7 @@
   "bugs": "https://github.com/nfreear/simple-speak/issues",
   "homepage": "http://nick.freear.org.uk/2017/06/13/simple-speak.html?utm_source=npm",
   "dependencies": {
-    "jquery": "^2.2.4"
+    "jquery": "^3.2.1"
   },
   "devDependencies": {
     "browserify": "^14.4.0",
@@ -20,7 +20,7 @@
     "jsdoc": "^3.4.3",
     "live-server": "^1.2.0",
     "replace": "^0.3.0",
-    "semistandard": "^11.0.0",
+    "semistandard": "^12.0.0",
     "uglify-js": "^3.0.14"
   },
   "engines": {
