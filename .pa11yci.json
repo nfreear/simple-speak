@@ -1,0 +1,19 @@
+{
+  "#": "Automated accessibility testing ~ https://github.com/pa11y/pa11y-ci",
+
+  "defaults": {
+    "standard": "WCAG2AAA",
+    "timeout": 5000,
+    "wait": 2000,
+    "screenCapture": "./_pa11y-screen-capture.png",
+    "verifyPage": "simple-speak-js"
+  },
+  "urls": [
+    "http://127.0.0.1:9001/test/static.html?_ua=pa11y-ci"
+  ],
+
+  "X-UNUSED--urls": [
+    "http://127.0.0.1:9001/embed/?&_ua=pa11y-ci",
+    "http://127.0.0.1:9001/test/index.html?_ua=pa11y-ci"
+  ]
+}

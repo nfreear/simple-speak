@@ -49,7 +49,7 @@ Use [Javascript hosted][rel] on the [unpkg][] CDN ([browse][unpkg-list]):
 ```html
 <div id="id-simple-speak"> Hello. I'm simple-speak. </div>
 
-<script src="https://unpkg.com/jquery@3.2.1/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
 <script src="https://unpkg.com/simple-speak@1.3.2#._.js"></script>
 ```
 
@@ -58,7 +58,7 @@ Use [Javascript hosted][rel] on the [RawGit][] CDN:
 ```html
 <div id="id-simple-speak"> Hello. I'm simple-speak. </div>
 
-<script src="https://unpkg.com/jquery@3.2.1/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
 <script src="https://cdn.rawgit.com/nfreear/simple-speak/1.3.2/build/simple-speak.js"></script>
 ```
 
@@ -67,7 +67,7 @@ Speak static text within an arbitrary HTML `<element>` — zero-configuration:
 ```html
 <div id="id-simple-speak"> Hello. I'm simple-speak. </div>
 
-<script src="https://unpkg.com/jquery@3.2.1/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
 <script src="dist/simple-speak.js"></script>
 ```
 
@@ -76,7 +76,7 @@ Speak a text form-field, configure an alternative voice ([configuration][cfg]):
 ```html
 <label>Speech input <input id="id-simple-speak" value="Hi. I'm a text input box!"></label>
 
-<script src="https://unpkg.com/jquery@3.2.1/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
 <script src="dist/simple-speak.js" data-simple-speak='{ "voiceFamily": "Vicki" }'></script>
 ```
 
@@ -87,7 +87,7 @@ Simplified Chinese — [`Hello auntie`][zh-cn]:
 ```html
 <div id="id-simple-speak"> 你好阿姨 </div>
 
-<script src="https://unpkg.com/jquery@3.2.1/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
 <script src="dist/simple-speak.js"
         data-simple-speak='{ "lang": "zh-cn", "voiceFamily": "Google 普通话（中国大陆）" }'></script>
 ```
@@ -97,7 +97,7 @@ Simplified Chinese — [`Hello auntie`][zh-cn]:
 ```html
 <div id="id-simple-speak"> Spell me! </div>
 
-<script src="https://unpkg.com/jquery@3.2.1/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
 <script src="dist/simple-speak.js" data-simple-speak='{ "mode": "spell" }'></script>
 ```
 
@@ -128,7 +128,7 @@ You can embed `simple-speak` in an `<iframe>`, and optionally set a language:
 
 ## WordPress
 
-A [shortcode plugin for WordPress][wp] to speak and spell:
+A [shortcode plugin for WordPress][gist-wp] to speak and spell:
 
 ```css
 [speak] Hello [/speak]   ..   [spell] Spell me! [/spell]
@@ -138,10 +138,10 @@ A [shortcode plugin for WordPress][wp] to speak and spell:
 
 License: [MIT][].
 
-© 2017 [Nick Freear][blog] and contributors. [@nfreear][].
+© 2017-2018 [Nick Freear][blog] and contributors. [@nfreear][].
 
 
-[blog post]: http://nick.freear.org.uk/2017/06/13/simple-speak.html
+[blog post]: https://nick.freear.org.uk/2017/06/13/simple-speak.html
   "'Simple-speak, voiceFamily', 13 June 2017"
 [gh]: https://github.com/nfreear/simple-speak
 [build]: https://github.com/nfreear/simple-speak/blob/master/dist/simple-speak.js
@@ -151,20 +151,20 @@ License: [MIT][].
 [cfg]: https://github.com/nfreear/simple-speak/blob/master/src/configure.js#L14-L46
   "Configuration options & defaults."
 [@nfreear]: https://twitter.com/nfreear "Twitter: @nfreear"
-[blog]: http://nick.freear.org.uk "Nick Freear's blog"
+[blog]: https://nick.freear.org.uk "Nick Freear's blog"
 [moz]: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
 [w3c]: https://dvcs.w3.org/hg/speech-api/raw-file/tip/webspeechapi.html
   "Web Speech API Specification (W3C). Editor's Draft: 6 June 2014."
 [gist]: https://gist.github.com/nfreear/3e6255fe4283353e8aa2f62094ae91c9 "Gist: simple-speak.proto.js"
 [gist-v]: https://gist.github.com/nfreear/4de02b347d61cb3650b89e11162d7d6a "Gist: get-voices.js.html"
-[wp]: https://gist.github.com/nfreear/6e53e8458ea5a582288f734c5277eb5d#!-WordPress
+[gist-wp]: https://gist.github.com/nfreear/6e53e8458ea5a582288f734c5277eb5d#!-WordPress
   "WordPress shortcode plugin ~ Gist (PHP)"
 [Browserify]: https://github.com/substack/browserify-handbook#introduction
 [RawGit]: https://rawgit.com/
   "RawGit serves Git files with the correct mime-type; a content delivery network (CDN)"
 [unpkg]: https://unpkg.com/ "unpkg is a fast content delivery network for everything on npm"
 [unpkg-list]: https://unpkg.com/simple-speak@^1/ "Browse simple-speak"
-[MIT]: https://nfreear.mit-license.org/2017#!-simple-speak "MIT License"
+[MIT]: https://nfreear.mit-license.org/2017-2018#!-simple-speak "MIT License"
 [caniuse]: https://caniuse.com/#feat=speech-synthesis "Check browser compatibility (caniuse)"
 [travis]: https://travis-ci.org/nfreear/simple-speak
 [travis-icon]: https://api.travis-ci.org/nfreear/simple-speak.svg
