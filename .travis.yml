@@ -16,4 +16,12 @@ after_script:
   #- node test/configure-test.js
   - cat dist/simple-speak.min.js
 
+deploy:
+  provider: npm
+  email: nfreear@yahoo.co.uk
+  api_key: $NPM_API_KEY
+  skip_cleanup: true
+  on:
+    tags: true
+
 # End.

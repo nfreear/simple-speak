@@ -28,7 +28,7 @@ const VERSION_FILE = path('/version.js');
 const VERSION_JS = 'module.exports = \'%s\'; // Auto.\n';
 const PKG = require('../package');
 const VERSION_TAG = PKG.version; // .replace(/\.0(-.+)?/, '$1');
-const JQUERY_VER = PKG.dependencies.jquery;
+const JQUERY_VER = PKG.peerDependencies.jquery;
 
 console.warn('VERSION_TAG :', VERSION_TAG);
 console.warn('jQuery ver  :', JQUERY_VER);

@@ -15,6 +15,8 @@ module.exports.compatible = function (ssConfig, WIN) {
 
   WIN = WIN || global; // window.
 
+  var ua = WIN.navigator.userAgent;
+  var isHeadless = /(PhantomJS|pa11y|truffler)/i.test(ua); // 'pa11y/4.13.2 (truffler/3.1.0)' https://gist.github.com/rafanoronha/8245708 - PhantomJS.
   var isCompat = ssConfig.isCompatible = ('speechSynthesis' in WIN);
 
   if (ssConfig.overrideCompat) {
@@ -23,9 +25,11 @@ module.exports.compatible = function (ssConfig, WIN) {
 
   var $body = WIN.jQuery('body');
 
-  $body.addClass(isCompat ? 'simple-speak-ok' : 'no-compat-simple-speak');
+  $body.addClass(isCompat || isHeadless ? 'simple-speak-ok' : 'no-compat-simple-speak');
 
-  if (!isCompat) {
+  // TEST! $body.prepend('<p style="background:#fff; color:#fff;">%s</p>'.replace('%s', ua));
+
+  if (!isCompat && !isHeadless) {
     $body
       .prepend(ssConfig.noCompatMsg)
       .prepend('<style>.simple-speak-no-compat-msg{color:red}</style>');
@@ -37,5 +41,5 @@ module.exports.compatible = function (ssConfig, WIN) {
     console.error('Warning. Your browser does NOT support speech synthesis.');
   }
 
-  return isCompat;
+  return isCompat || isHeadless;
 };

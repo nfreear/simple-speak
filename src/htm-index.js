@@ -17,7 +17,7 @@ window.jQuery(function ($) {
   window.ga('create', 'UA-8330079-8', 'auto');
   window.ga('send', 'pageview');
 
-  var script = 'https://unpkg.co/simple-speak@1.3.0-beta#._.js';
+  var script = 'https://unpkg.com/simple-speak@1.3.2-beta#._.js';
   var query = window.location.href;
   var isEmbed = /[\/#?&;]embed[\/=&;]/.test(query);
   var useCdn = query.match(/cdn=1/);

@@ -53,6 +53,7 @@
   "files": [
     "index.js",
     "dist/",
+    "htm/opensearch.xml",
     "src/",
     "style/"
   ],

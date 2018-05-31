@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xml:lang="en">
+<OpenSearchDescription
+  xmlns="http://a9.com/-/spec/opensearch/1.1/"
+  xmlns:moz="http://www.mozilla.org/2006/browser/search/" xml:lang="en">
   <ShortName>speak</ShortName>
   <Description>Speech synthesis via simple-speak ~ https://github.com/nfreear/simple-speak</Description>
   <Contact>nfreear+@+yahoo.co.uk</Contact>
-  <Url type="text/html"
-       template="https://cdn.rawgit.com/nfreear/simple-speak/1.3.2/htm/?q={searchTerms};lang={language?}&amp;utm_source=opensearch"/>
+  <Url
+    type="text/html"
+    template="https://cdn.rawgit.com/nfreear/simple-speak/1.3.2/htm/?q={searchTerms}&amp;lang={language?}&amp;utm_source=opensearch"/>
   <Image height="64" width="64" type="image/png">https://cdn.rawgit.com/nfreear/simple-speak/1.3.2/style/icon-64.png</Image>
   <Query role="example" searchTerms="Hello. I'm simple-speak." />
   <Attribution>© Nick Freear, 07-June-2017 | License: MIT.</Attribution>
@@ -12,5 +15,5 @@
   <!--<AdultContent>false</AdultContent>-->
   <Language>*</Language>
   <InputEncoding>UTF-8</InputEncoding>
-  <OutputEncoding>UTF-8</OutputEncoding>
+  <moz:SearchForm>https://cdn.rawgit.com/nfreear/simple-speak/1.3.2/htm/</moz:SearchForm>
 </OpenSearchDescription>
